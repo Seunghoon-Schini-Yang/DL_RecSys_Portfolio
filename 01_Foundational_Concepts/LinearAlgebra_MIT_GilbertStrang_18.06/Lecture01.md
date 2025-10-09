@@ -1,4 +1,13 @@
-# 📚 Chapter 2: Solving Ax = b (The Column Space and the Nullspace)
+# 📚 Lecture 1: The geometry of linear equations
+
+$$
+\mathbf{A} = \begin{bmatrix} 2 & -1 & 0 \\ -1 & 2 & -1 \\ 0 & -3 & 4\end{bmatrix}, \quad \mathbf{b} = \begin{bmatrix} 1 \\ 1 \\ -3 \end{bmatrix}
+$$
+
+Row Picture
+
+
+Column Picture
 
 This chapter focuses on the complete solution to the linear system $\mathbf{A}\mathbf{x} = \mathbf{b}$. We explore the two fundamental subspaces associated with $\mathbf{A}$: the Column Space and the Nullspace.
 

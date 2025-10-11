@@ -4,7 +4,7 @@
 \mathbf{A} = \begin{bmatrix} 2 & -1 & 0 \\ -1 & 2 & -1 \\ 0 & -3 & 4\end{bmatrix}, \quad \mathbf{b} = \begin{bmatrix} 1 \\ 1 \\ -3 \end{bmatrix}
 ```
 
-**Row Picture**
+**○ Row Picture**
 * Three planes meet in a point, and that's the solution.\
 (Unless parallels or something exist.)
 ```math
@@ -15,7 +15,7 @@
 \end{eqnarray}
 ```
 
-**Column Picture**
+**○ Column Picture**
 * Linear combination of three vectors.
 
 ```math
@@ -26,6 +26,8 @@
 💡 Can I solve $\mathbf{A}\mathbf{x} = \mathbf{b}$ for every $\mathbf{b}$ ?\
 💡 Do the linear combinations of the columns fill 3-D space?
 
+
+<br><br><br>
 
 
 # 📚 Lecture 2: Elimination with matrices
@@ -57,21 +59,16 @@
 \end{align*}
 ```
 
-** Exchange rows **
+**○ Inverses**
 ```math
-\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}
-\begin{bmatrix} a & b \\ c & d\end{bmatrix}
-= \begin{bmatrix} c & d \\ a & b\end{bmatrix}
-```
-
-**Inverses**
-```math
-\begin{bmatrix} 1 & 0 & 0 \\ 3 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}
+\mathbf{E_{21}^{-1}}\mathbf{E_{21}}
+= \begin{bmatrix} 1 & 0 & 0 \\ 3 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}
 \begin{bmatrix} 1 & 0 & 0 \\ -3 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}
 = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}
+= \mathbf{I}
 ```
 
-**Exchange rows**
+**○ Exchange rows**
 ```math
 \begin{align}
 \begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}
@@ -80,7 +77,7 @@
 \end{align}
 ```
 
-**Exchange columns**
+**○ Exchange columns**
 ```math
 \begin{bmatrix} a & b \\ c & d\end{bmatrix}
 \begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}

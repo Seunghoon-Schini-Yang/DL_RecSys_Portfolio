@@ -25,3 +25,64 @@
 ### 🧩 Key Points
 💡 Can I solve $\mathbf{A}\mathbf{x} = \mathbf{b}$ for every $\mathbf{b}$ ?\
 💡 Do the linear combinations of the columns fill 3-D space?
+
+
+
+# 📚 Lecture 2: Elimination with matrices
+
+```math
+\begin{align*}
+\mathbf{E_{21}}
+= \begin{bmatrix} 1 & 0 & 0 \\ -3 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}
+\quad\text{(Substract 3*row1 from row2)}
+\end{align*}
+```
+
+```math
+\begin{align*}
+\mathbf{E_{32}}
+= \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & -2 & 1\end{bmatrix}
+\quad\text{(Substract 2*row2 from row3)}
+\end{align*}
+```
+
+```math
+\begin{align*}
+\mathbf{U} = \mathbf{E_{32}}\mathbf{E_{21}}\mathbf{A}{}
+& = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & -2 & 1\end{bmatrix}\begin{bmatrix} 1 & 0 & 0 \\ -3 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}\begin{bmatrix} 1 & 2 & 1 \\ 3 & 8 & 1 \\ 0 & 4 & 1\end{bmatrix}
+\\
+& = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & -2 & 1\end{bmatrix}\begin{bmatrix} 1 & 2 & 1 \\ 0 & 2 & -2 \\ 0 & 4 & 1\end{bmatrix}
+\\
+& = \begin{bmatrix} 1 & 2 & 1 \\ 0 & 2 & -2 \\ 0 & 0 & 5\end{bmatrix}
+\end{align*}
+```
+
+** Exchange rows **
+```math
+\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}
+\begin{bmatrix} a & b \\ c & d\end{bmatrix}
+= \begin{bmatrix} c & d \\ a & b\end{bmatrix}
+```
+
+**Inverses**
+```math
+\begin{bmatrix} 1 & 0 & 0 \\ 3 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}
+\begin{bmatrix} 1 & 0 & 0 \\ -3 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}
+= \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}
+```
+
+**Exchange rows**
+```math
+\begin{align}
+\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}
+\begin{bmatrix} a & b \\ c & d\end{bmatrix}
+= \begin{bmatrix} c & d \\ a & b\end{bmatrix}
+\end{align}
+```
+
+**Exchange columns**
+```math
+\begin{bmatrix} a & b \\ c & d\end{bmatrix}
+\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}
+= \begin{bmatrix} b & a \\ d & c\end{bmatrix}
+```

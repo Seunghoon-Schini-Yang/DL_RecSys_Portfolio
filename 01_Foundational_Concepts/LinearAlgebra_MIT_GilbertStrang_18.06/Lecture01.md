@@ -27,7 +27,7 @@
 💡 Do the linear combinations of the columns fill 3-D space?
 
 
-<br><br><br>
+<br><br><hr>
 
 
 # 📚 Lecture 2: Elimination with matrices
@@ -52,9 +52,9 @@
 \begin{align*}
 \mathbf{U} = \mathbf{E_{32}}\mathbf{E_{21}}\mathbf{A}{}
 & = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & -2 & 1\end{bmatrix}\begin{bmatrix} 1 & 0 & 0 \\ -3 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}\begin{bmatrix} 1 & 2 & 1 \\ 3 & 8 & 1 \\ 0 & 4 & 1\end{bmatrix}
-\\
+\\\\
 & = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & -2 & 1\end{bmatrix}\begin{bmatrix} 1 & 2 & 1 \\ 0 & 2 & -2 \\ 0 & 4 & 1\end{bmatrix}
-\\
+\\\\
 & = \begin{bmatrix} 1 & 2 & 1 \\ 0 & 2 & -2 \\ 0 & 0 & 5\end{bmatrix}
 \end{align*}
 ```
@@ -84,8 +84,7 @@
 = \begin{bmatrix} b & a \\ d & c\end{bmatrix}
 ```
 
-
-<br><br><br>
+<br><br><hr>
 
 # 📚 Lecture 3: Multiplication and Inverse matrices
 <br>**○ Matrix Multiplication**
@@ -153,34 +152,65 @@ c_{m1} & c_{m2} & \cdots & c_{mp}
 \begin{bmatrix} 1 & 3 \\ 3 & 4 \\ -1 & 1 \end{bmatrix}{}
 & = \begin{bmatrix} 1 \\ -2 \end{bmatrix}\begin{bmatrix} 1 & 3 \end{bmatrix}
 + \begin{bmatrix} 4 \\ 1 \end{bmatrix}\begin{bmatrix} 3 & 4 \end{bmatrix}
-+ \begin{bmatrix} 2 \\ 5 \end{bmatrix}\begin{bmatrix} -1 & 1 \end{bmatrix} \\
++ \begin{bmatrix} 2 \\ 5 \end{bmatrix}\begin{bmatrix} -1 & 1 \end{bmatrix} \\\\
 & = \begin{bmatrix} 1 * \begin{bmatrix} 1 & 3 \end{bmatrix} \\ -2 * \begin{bmatrix} 1 & 3 \end{bmatrix} \end{bmatrix}
 + \begin{bmatrix} 4 * \begin{bmatrix} 3 & 4 \end{bmatrix} \\ 1 * \begin{bmatrix} 3 & 4 \end{bmatrix} \end{bmatrix}
-+ \begin{bmatrix} 2 * \begin{bmatrix} -1 & 1 \end{bmatrix} \\ 5 * \begin{bmatrix} -1 & 1 \end{bmatrix} \end{bmatrix}
++ \begin{bmatrix} 2 * \begin{bmatrix} -1 & 1 \end{bmatrix} \\ 5 * \begin{bmatrix} -1 & 1 \end{bmatrix} \end{bmatrix} \\\\
+& = \begin{bmatrix} 1 * \begin{bmatrix} 1 \\ -2 \end{bmatrix} & 3 * \begin{bmatrix} 1 \\ -2 \end{bmatrix} \end{bmatrix}
++ \begin{bmatrix} 3 * \begin{bmatrix} 4 \\ 1 \end{bmatrix} & 4 * \begin{bmatrix} 4 \\ 1 \end{bmatrix} \end{bmatrix}
++ \begin{bmatrix} -1 * \begin{bmatrix} 2 \\ 5 \end{bmatrix} & 1 * \begin{bmatrix} 2 \\ 5 \end{bmatrix} \end{bmatrix}
 \end{align*}
 ```
 
 ```math
 \begin{align*}\biggl(\quad
 \begin{bmatrix} 1 * \begin{bmatrix} 1 & 3 \end{bmatrix} \\ -2 * \begin{bmatrix} 1 & 3 \end{bmatrix} \end{bmatrix}
-\quad\text{: each row (col) has same direction to other rows (cols)}
-\quad\biggr)\end{align*}
+= \begin{bmatrix} 1 * \begin{bmatrix} 1 \\ -2 \end{bmatrix} & 3 * \begin{bmatrix} 1 \\ -2 \end{bmatrix} \end{bmatrix}
+\quad\text{: Each row (col) has same direction to other rows (cols)} \quad\biggr) \\
+\\
+\end{align*}
 ```
 
-<!-- matrix divided by blocks
-[A1 A2 [B1 B2     [C1 C2
- A3 A4] B3 B4] =   C3 C4]
-C1 = A1*B1 + A2*B3
+- Multiplication by Blocks
+```math
+\begin{align*}
+\text{When}\quad\mathbf{A}\mathbf{B}
+= \begin{bmatrix} \mathbf{A_1} & \mathbf{A_2} \\ \mathbf{A_3} & \mathbf{A_4} \end{bmatrix}
+\begin{bmatrix} \mathbf{B_1} & \mathbf{B_2} \\ \mathbf{B_3} & \mathbf{B_4} \end{bmatrix}
+= \begin{bmatrix} \mathbf{C_1} & \mathbf{C_2} \\ \mathbf{C_3} & \mathbf{C_4} \end{bmatrix} = \mathbf{C} \\\\
+\text{then}\quad \mathbf{C_1} = \mathbf{A_1}\mathbf{B_1} + \mathbf{A_2}\mathbf{B_3} \\\\
+\text{( Each of}\quad \mathbf{A_i},\ \mathbf{B_i},\ \mathbf{C_i}\quad\text{is matrix. )}
+\end{align*}
+```
 
-For square matrix A, if A^-1 exists
-A^-1 * A = I = A * A^-1
-then A is invertible and non-singular
+<br>**○ Inverse matrices**<br>
+For square matrix $A$, if $\mathbf{A^{-1}}$ exists,<br>
+then $\mathbf{A}$ is <b>invertible</b> and <b>non-singular</b>.<br>
+( $\mathbf{A^{-1}}\mathbf{A} = \mathbf{I} = \mathbf{A}\mathbf{A^{-1}}$ )
 
-A = [1 2 \\ 3 6]
-Ax = 0 >>> x = [3 -1]
-A^-1*A*x = A^-1*0
-x = 0
+<br>**○ Inverse matrices**<br>
+<br>For square matrix $A$,
+<br>if $\mathbf{A^{-1}}$ exists, then $\mathbf{A}$ is <b>invertible</b> and <b>non-singular</b>.
 
+```math
+\mathbf{A^{-1}}\mathbf{A} = \mathbf{I} = \mathbf{A}\mathbf{A^{-1}}
+```
+
+<br>In below case, $\mathbf{x}$ is not $\mathbf{0}$.
+<br>But at the same time, $\mathbf{x}$ is $\mathbf{0}$.
+<br>If some combinations of colums of $\mathbf{A}$ give $\mathbf{0}$, then $\mathbf{A}$ is <b>not invertible</b> and <b>singular</b>.
+
+```math
+\begin{align}
+\text{When}\quad \mathbf{A} = \begin{bmatrix} 1 & 3 \\ 2 & 6 \end{bmatrix} \quad
+\text{and}\quad \mathbf{x} = \begin{bmatrix} 3 \\ -1 \end{bmatrix} \quad\text{,} \quad\text{then}\quad \mathbf{A}\cdot\mathbf{x} = 0 \\\\
+\text{if}\quad \mathbf{A^{-1}} \quad\text{exists,}\quad\text{then}\quad \mathbf{A^{-1}}\cdot\mathbf{A}\cdot\mathbf{x}
+= \mathbf{A^{-1}}\cdot\mathbf{0} \quad\text{→}\quad \mathbf{x} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}
+\end{align}
+```
+
+
+<!-- 
 Gauss-Jordan Elimination
 [1 3 // 2 7][a b // c d] = [1 0 // 0 1]
 [1 3 // 2 7][1 0 // 0 1]

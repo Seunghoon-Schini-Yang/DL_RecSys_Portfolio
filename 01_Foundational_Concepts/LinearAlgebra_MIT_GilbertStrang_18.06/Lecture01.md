@@ -174,19 +174,14 @@ c_{m1} & c_{m2} & \cdots & c_{mp}
 - Multiplication by Blocks
 ```math
 \begin{align*}
-\text{When}\quad\mathbf{A}\mathbf{B}
+\text{When}\quad\mathbf{A}\cdot\mathbf{B}
 = \begin{bmatrix} \mathbf{A_1} & \mathbf{A_2} \\ \mathbf{A_3} & \mathbf{A_4} \end{bmatrix}
-\begin{bmatrix} \mathbf{B_1} & \mathbf{B_2} \\ \mathbf{B_3} & \mathbf{B_4} \end{bmatrix}
+\cdot\begin{bmatrix} \mathbf{B_1} & \mathbf{B_2} \\ \mathbf{B_3} & \mathbf{B_4} \end{bmatrix}
 = \begin{bmatrix} \mathbf{C_1} & \mathbf{C_2} \\ \mathbf{C_3} & \mathbf{C_4} \end{bmatrix} = \mathbf{C} \\\\
-\text{then}\quad \mathbf{C_1} = \mathbf{A_1}\mathbf{B_1} + \mathbf{A_2}\mathbf{B_3} \\\\
+\text{then}\quad \mathbf{C_1} = \mathbf{A_1}\cdot\mathbf{B_1} + \mathbf{A_2}\cdot\mathbf{B_3} \\\\
 \text{( Each of}\quad \mathbf{A_i},\ \mathbf{B_i},\ \mathbf{C_i}\quad\text{is matrix. )}
 \end{align*}
 ```
-
-<br>**○ Inverse matrices**<br>
-For square matrix $A$, if $\mathbf{A^{-1}}$ exists,<br>
-then $\mathbf{A}$ is <b>invertible</b> and <b>non-singular</b>.<br>
-( $\mathbf{A^{-1}}\mathbf{A} = \mathbf{I} = \mathbf{A}\mathbf{A^{-1}}$ )
 
 <br>**○ Inverse matrices**<br>
 <br>For square matrix $A$,

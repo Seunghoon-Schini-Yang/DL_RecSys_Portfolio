@@ -205,30 +205,30 @@ A^{-1}A = I = AA^{-1}
 
 <br>**○ Gauss-Jordan Elimination**<br>
 
+- Set $\quad AA^{-1} = I$
 ```math
 \begin{align}
-\text{Set}\quad \begin{bmatrix} 1 & 3 \\ 2 & 7 \end{bmatrix}
+\begin{bmatrix} 1 & 3 \\ 2 & 7 \end{bmatrix}
 \begin{bmatrix} c & d \\ a & b \end{bmatrix}
 = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
 \quad (\quad AA^{-1} = I \quad)
 \end{align}
 ```
 
-- Do elimination
+- Do elimination with $\quad E_{i}$
 ```math
 \begin{align}
-\begin{bmatrix} A & I \end{bmatrix} \quad→\quad \begin{bmatrix} 1 & 3 \\ 2 & 7 \end{bmatrix}\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \\ E_{1}\begin{bmatrix} A & I \end{bmatrix}
-= \begin{bmatrix} E_{1}A & E_{1}I \end{bmatrix}
-\quad→\quad
-\begin{bmatrix} 1 & 3 \\ 0 & 1 \end{bmatrix}\begin{bmatrix} 1 & 0 \\ -2 & 1 \end{bmatrix} \\
+\begin{bmatrix} A & I \end{bmatrix} \quad→\quad \begin{bmatrix} 1 & 3 \\ 2 & 7 \end{bmatrix}\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \\
+E_{1}\begin{bmatrix} A & I \end{bmatrix} = \begin{bmatrix} E_{1}A & E_{1}I \end{bmatrix} \quad→\quad
+\begin{bmatrix} 1 & 3 \\ 0 & 1 \end{bmatrix}\begin{bmatrix} 1 & 0 \\ -2 & 1 \end{bmatrix} \quad\text{(Elimination)} \\
 E_{2}\begin{bmatrix} E_{1}A & E_{1}I \end{bmatrix}
 = \begin{bmatrix} E_{2}E_{1}A & E_{2}E_{1}I \end{bmatrix}
 \quad→\quad \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
-\begin{bmatrix} 7 & -3 \\ -2 & 1 \end{bmatrix}
+\begin{bmatrix} 7 & -3 \\ -2 & 1 \end{bmatrix} \quad\text{(Back substitution)}
 \end{align}
 ```
 
-- $\mathbf{E = A^{-1}}$
+- So, $\quad E = A^{-1}$
 ```math
 \begin{align}
 \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}\begin{bmatrix} 7 & -3 \\ -2 & 1 \end{bmatrix}

@@ -123,26 +123,26 @@ c_{m1} & c_{m2} & \cdots & c_{mp}
 
 - each element of $\mathbf{C}$
 ```math
-\mathbf{c_{ij}} = \vec{a}_{row_i}\cdot\vec{b}_{col_j}\text{ (dot product)}
-= \mathbf{a_{i1}}\mathbf{b_{1j}} + \mathbf{a_{i2}}\mathbf{b_{2j}} + \cdots + \mathbf{a_{in}}\mathbf{b_{nj}}
-= \sum_{k=1}^n \mathbf{a_{ik}}\mathbf{b_{kj}}
+c_{ij} = \vec{a}_{row_i}\cdot\vec{b}_{col_j}\text{ (dot product)}
+= a_{i1} b_{1j} + a_{i2} b_{2j} + \cdots + a_{in} b_{nj}
+= \sum_{k=1}^n a_{ik} b_{kj}
 ```
 
 - rows of $\mathbf{C}$ are combinations of rows of $\mathbf{B}$
 ```math
-\mathbf{\vec{c}_{row_k}} = \mathbf{a_{k1}}\mathbf{\vec{b}_{row_1}} + \mathbf{a_{k2}}\mathbf{\vec{b}_{row_2}} + \cdots + \mathbf{a_{kn}}\mathbf{\vec{b}_{row_n}}
-= \sum_{i=1}^n \mathbf{a_{ki}}\mathbf{\vec{b}_{row_i}}
+\vec{c}_{row_k} = a_{k1} \vec{b}_{row_1} + a_{k2} \vec{b}_{row_2} + \cdots + a_{kn}\vec{b}_{row_n}
+= \sum_{i=1}^n a_{ki} \vec{b}_{row_i}
 ```
 
 - cols of $\mathbf{C}$ are combinations of cols of $\mathbf{A}$
 ```math
-\mathbf{\vec{c}_{col_k}} = \mathbf{b_{1k}}\mathbf{\vec{a}_{col_1}} + \mathbf{b_{2k}}\mathbf{\vec{a}_{col_2}} + \cdots + \mathbf{b_{nk}}\mathbf{\vec{a}_{col_n}}
-= \sum_{i=1}^n \mathbf{b_{ik}}\mathbf{\vec{a}_{col_i}}
+\vec{c}_{col_k} = b_{1k} \vec{a}_{col_1} + b_{2k} \vec{a}_{col_2} + \cdots + b_{nk}\vec{a}_{col_n}
+= \sum_{i=1}^n b_{ik} \vec{a}_{col_i}
 ```
 
 - 4th way (cols of $\mathbf{A}$ * rows of $\mathbf{B}$)
 ```math
-\mathbf{C} = \sum_{k=1}^n \vec{a}_{col_k} \cdot \vec{b}_{row_k}
+C = \sum_{k=1}^n \vec{a}_{col_k} \cdot \vec{b}_{row_k}
 ```
 
 ```math
@@ -174,12 +174,11 @@ c_{m1} & c_{m2} & \cdots & c_{mp}
 - Multiplication by Blocks
 ```math
 \begin{align*}
-\text{When}\quad\mathbf{A}\cdot\mathbf{B}
-= \begin{bmatrix} \mathbf{A_1} & \mathbf{A_2} \\ \mathbf{A_3} & \mathbf{A_4} \end{bmatrix}
-\cdot\begin{bmatrix} \mathbf{B_1} & \mathbf{B_2} \\ \mathbf{B_3} & \mathbf{B_4} \end{bmatrix}
-= \begin{bmatrix} \mathbf{C_1} & \mathbf{C_2} \\ \mathbf{C_3} & \mathbf{C_4} \end{bmatrix} = \mathbf{C} \\\\
-\text{then}\quad \mathbf{C_1} = \mathbf{A_1}\cdot\mathbf{B_1} + \mathbf{A_2}\cdot\mathbf{B_3} \\\\
-\text{( Each of}\quad \mathbf{A_i},\ \mathbf{B_i},\ \mathbf{C_i}\quad\text{is matrix. )}
+\text{When}\quad\ AB
+= \begin{bmatrix} A_1 & A_2 \\ A_3 & A_4 \end{bmatrix}\begin{bmatrix} B_1 & B_2 \\ B_3 & B_4 \end{bmatrix}
+= \begin{bmatrix} C_1 & C_2 \\ C_3 & C_4 \end{bmatrix} = C \\\\
+\text{then}\quad C_1 = A_1 B_1 + A_2 B_3 \\\\
+\text{( Each of}\quad A_i,\ B_i,\ C_i \quad\text{is matrix. )}
 \end{align*}
 ```
 
@@ -188,7 +187,7 @@ c_{m1} & c_{m2} & \cdots & c_{mp}
 <br>if $\mathbf{A^{-1}}$ exists, then $\mathbf{A}$ is <b>invertible</b> and <b>non-singular</b>.
 
 ```math
-\mathbf{A^{-1}}\mathbf{A} = \mathbf{I} = \mathbf{A}\mathbf{A^{-1}}
+A^{-1}A = I = AA^{-1}
 ```
 
 <br>In below case, $\mathbf{x}$ is not $\mathbf{0}$.
@@ -197,23 +196,51 @@ c_{m1} & c_{m2} & \cdots & c_{mp}
 
 ```math
 \begin{align}
-\text{When}\quad \mathbf{A} = \begin{bmatrix} 1 & 3 \\ 2 & 6 \end{bmatrix} \quad
-\text{and}\quad \mathbf{x} = \begin{bmatrix} 3 \\ -1 \end{bmatrix} \quad\text{,} \quad\text{then}\quad \mathbf{A}\cdot\mathbf{x} = 0 \\\\
-\text{if}\quad \mathbf{A^{-1}} \quad\text{exists,}\quad\text{then}\quad \mathbf{A^{-1}}\cdot\mathbf{A}\cdot\mathbf{x}
-= \mathbf{A^{-1}}\cdot\mathbf{0} \quad\text{→}\quad \mathbf{x} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}
+\text{When}\quad A = \begin{bmatrix} 1 & 3 \\ 2 & 6 \end{bmatrix} \quad
+\text{and}\quad x = \begin{bmatrix} 3 \\ -1 \end{bmatrix} \quad\text{,} \quad\text{then}\quad Ax = 0 \\\\
+\text{if}\quad A^{-1} \quad\text{exists,}\quad\text{then}\quad A^{-1}Ax
+= A^{-1}0 \quad→\quad x = \begin{bmatrix} 0 \\ 0 \end{bmatrix}
 \end{align}
 ```
 
+<br>**○ Gauss-Jordan Elimination**<br>
 
-<!-- 
-Gauss-Jordan Elimination
-[1 3 // 2 7][a b // c d] = [1 0 // 0 1]
-[1 3 // 2 7][1 0 // 0 1]
-[1 3 // 0 1][1 0 // -2 1]
-[1 0 // 0 1][7 -3 // -2 1]
+```math
+\begin{align}
+\text{Set}\quad \begin{bmatrix} 1 & 3 \\ 2 & 7 \end{bmatrix}
+\begin{bmatrix} c & d \\ a & b \end{bmatrix}
+= \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
+\quad (\quad AA^{-1} = I \quad)
+\end{align}
+```
+
+- Do elimination
+```math
+\begin{align}
+\begin{bmatrix} A & I \end{bmatrix} \quad→\quad \begin{bmatrix} 1 & 3 \\ 2 & 7 \end{bmatrix}\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \\ E_{1}\begin{bmatrix} A & I \end{bmatrix}
+= \begin{bmatrix} E_{1}A & E_{1}I \end{bmatrix}
+\quad→\quad
+\begin{bmatrix} 1 & 3 \\ 0 & 1 \end{bmatrix}\begin{bmatrix} 1 & 0 \\ -2 & 1 \end{bmatrix} \\
+E_{2}\begin{bmatrix} E_{1}A & E_{1}I \end{bmatrix}
+= \begin{bmatrix} E_{2}E_{1}A & E_{2}E_{1}I \end{bmatrix}
+\quad→\quad \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
+\begin{bmatrix} 7 & -3 \\ -2 & 1 \end{bmatrix}
+\end{align}
+```
+
+- $\mathbf{E = A^{-1}}$
+```math
+\begin{align}
+\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}\begin{bmatrix} 7 & -3 \\ -2 & 1 \end{bmatrix}
+= \begin{bmatrix} EA & EI \end{bmatrix} = \begin{bmatrix} I & E \end{bmatrix}\quad
+(\quad\text{where}\quad E = E_{2}E_{1} \quad) \\
+\text{So,}\quad EA = I \quad↔\quad E = A^{-1}
+\end{align}
+```
 
 <br><br><br>
 
+<!-- 
 # 📚 Lecture 4: Factorization into A = LU
 A = LU
 A = LDU -->

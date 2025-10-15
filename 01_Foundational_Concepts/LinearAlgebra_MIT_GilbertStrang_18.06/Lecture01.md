@@ -1,7 +1,8 @@
 # 📚 Lecture 1: The geometry of linear equations
 
 ```math
-\mathbf{A} = \begin{bmatrix} 2 & -1 & 0 \\ -1 & 2 & -1 \\ 0 & -3 & 4\end{bmatrix}, \quad \mathbf{b} = \begin{bmatrix} 1 \\ 1 \\ -3 \end{bmatrix}
+A = \begin{bmatrix} 2 & -1 & 0 \\ -1 & 2 & -1 \\ 0 & -3 & 4\end{bmatrix},
+\quad b = \begin{bmatrix} 1 \\ 1 \\ -3 \end{bmatrix}
 ```
 
 **○ Row Picture**
@@ -9,9 +10,9 @@
 (Unless parallels or something exist.)
 ```math
 \begin{eqnarray}
-2\mathbf{x} - \mathbf{y} = 1 \\
--\mathbf{x} + 2\mathbf{y} -\mathbf{z} = 1 \\
--3\mathbf{y} + 4\mathbf{z} = -3
+2x - y = 1 \\
+-x + 2y -z = 1 \\
+-3y + 4z = -3
 \end{eqnarray}
 ```
 
@@ -19,11 +20,14 @@
 * Linear combination of three vectors.
 
 ```math
-\mathbf{x} \begin{bmatrix} 2 \\ -1 \\ 0\end{bmatrix} + \mathbf{y} \begin{bmatrix} -1 \\ 2 \\ -3\end{bmatrix} + \mathbf{z} \begin{bmatrix} 0 \\ -1 \\ 4\end{bmatrix} = \begin{bmatrix} 1 \\ 1 \\ -3\end{bmatrix}
+x \begin{bmatrix} 2 \\ -1 \\ 0 \end{bmatrix}
++ y \begin{bmatrix} -1 \\ 2 \\ -3 \end{bmatrix}
++ z \begin{bmatrix} 0 \\ -1 \\ 4 \end{bmatrix}
+= \begin{bmatrix} 1 \\ 1 \\ -3\end{bmatrix}
 ```
 
 ### 🧩 Key Points
-💡 Can I solve $\mathbf{A}\mathbf{x} = \mathbf{b}$ for every $\mathbf{b}$ ?\
+💡 Can I solve $Ax = b$ for every $b$ ?\
 💡 Do the linear combinations of the columns fill 3-D space?
 
 
@@ -42,33 +46,34 @@
 
 ```math
 \begin{align*}
-\mathbf{E_{32}}
-= \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & -2 & 1\end{bmatrix}
+E_{32} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & -2 & 1\end{bmatrix}
 \quad\text{(Substract 2*row2 from row3)}
 \end{align*}
 ```
 
 ```math
 \begin{align*}
-\mathbf{U} = \mathbf{E_{32}}\mathbf{E_{21}}\mathbf{A}{}
+U = E_{32}E_{21}A{}
 & = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & -2 & 1\end{bmatrix}\begin{bmatrix} 1 & 0 & 0 \\ -3 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}\begin{bmatrix} 1 & 2 & 1 \\ 3 & 8 & 1 \\ 0 & 4 & 1\end{bmatrix}
 \\\\
 & = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & -2 & 1\end{bmatrix}\begin{bmatrix} 1 & 2 & 1 \\ 0 & 2 & -2 \\ 0 & 4 & 1\end{bmatrix}
 \\\\
 & = \begin{bmatrix} 1 & 2 & 1 \\ 0 & 2 & -2 \\ 0 & 0 & 5\end{bmatrix}
+\quad\text{(U : Upper Triangular Matrix)}
 \end{align*}
 ```
 
 <br>**○ Inverses**
+
 ```math
-\mathbf{E_{21}^{-1}}\mathbf{E_{21}}
+E_{21}^{-1}E_{21}
 = \begin{bmatrix} 1 & 0 & 0 \\ 3 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}
 \begin{bmatrix} 1 & 0 & 0 \\ -3 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}
-= \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}
-= \mathbf{I}
+= \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix} = I
 ```
 
 <br>**○ Permutations**
+
 - Exchange rows
 ```math
 \begin{align}
@@ -91,7 +96,7 @@
 
 ```math
 \begin{align*}
-\mathbf{A}\mathbf{B} = \mathbf{C}\quad
+AB = C\quad
 \biggl(\quad\text{where}\quad
 A = \begin{bmatrix}
 a_{11} & a_{12} & \cdots & a_{1n} \\
@@ -128,19 +133,19 @@ c_{ij} = \vec{a}_{row_i}\cdot\vec{b}_{col_j}\text{ (dot product)}
 = \sum_{k=1}^n a_{ik} b_{kj}
 ```
 
-- rows of $\mathbf{C}$ are combinations of rows of $\mathbf{B}$
+- rows of $\mathbf{C}$ are combinations of rows of $B$
 ```math
 \vec{c}_{row_k} = a_{k1} \vec{b}_{row_1} + a_{k2} \vec{b}_{row_2} + \cdots + a_{kn}\vec{b}_{row_n}
 = \sum_{i=1}^n a_{ki} \vec{b}_{row_i}
 ```
 
-- cols of $\mathbf{C}$ are combinations of cols of $\mathbf{A}$
+- cols of $C$ are combinations of cols of $A$
 ```math
 \vec{c}_{col_k} = b_{1k} \vec{a}_{col_1} + b_{2k} \vec{a}_{col_2} + \cdots + b_{nk}\vec{a}_{col_n}
 = \sum_{i=1}^n b_{ik} \vec{a}_{col_i}
 ```
 
-- 4th way (cols of $\mathbf{A}$ * rows of $\mathbf{B}$)
+- 4th way (cols of $A$ * rows of $B$)
 ```math
 C = \sum_{k=1}^n \vec{a}_{col_k} \cdot \vec{b}_{row_k}
 ```
@@ -182,17 +187,17 @@ C = \sum_{k=1}^n \vec{a}_{col_k} \cdot \vec{b}_{row_k}
 \end{align*}
 ```
 
-<br>**○ Inverse matrices**<br>
-<br>For square matrix $A$,
-<br>if $\mathbf{A^{-1}}$ exists, then $\mathbf{A}$ is <b>invertible</b> and <b>non-singular</b>.
+<br>**○ Inverse matrices**<br><br>
+- For square matrix $A$,
+<br>if $A^{-1}$ exists, then $A$ is <b>invertible</b> and <b>non-singular</b>.
 
 ```math
 A^{-1}A = I = AA^{-1}
 ```
 
-<br>In below case, $\mathbf{x}$ is not $\mathbf{0}$.
-<br>But at the same time, $\mathbf{x}$ is $\mathbf{0}$.
-<br>If some combinations of colums of $\mathbf{A}$ give $\mathbf{0}$, then $\mathbf{A}$ is <b>not invertible</b> and <b>singular</b>.
+- In below case, $x$ is not $0$.
+<br>But at the same time, $x$ is $0$.
+<br>If some combinations of colums of $A$ give $0$, then $A$ is <b>not invertible</b> and <b>singular</b>.
 
 ```math
 \begin{align}
@@ -240,7 +245,21 @@ E_{2}\begin{bmatrix} E_{1}A & E_{1}I \end{bmatrix}
 
 <br><br><br>
 
-<!-- 
 # 📚 Lecture 4: Factorization into A = LU
-A = LU
-A = LDU -->
+
+```math
+\begin{align}
+& \begin{bmatrix} 1 & 0 \\ -4 & 1 \end{bmatrix}
+\begin{bmatrix} 2 & 1 \\ 8 & 7 \end{bmatrix}
+= \begin{bmatrix} 2 & 1 \\ 0 & 3 \end{bmatrix}
+\quad ( \quad E_{21}A = U \quad ) \\
+& \begin{bmatrix} 2 & 1 \\ 8 & 7 \end{bmatrix}
+= \begin{bmatrix} 1 & 0 \\ 4 & 1 \end{bmatrix}
+\begin{bmatrix} 2 & 1 \\ 0 & 3 \end{bmatrix}
+\quad ( \quad A = LU \text{ ,} \quad\text{where}\quad L = E_{21}^{-1} \quad ) \\
+& = \begin{bmatrix} 1 & 0 \\ 4 & 1 \end{bmatrix}
+\begin{bmatrix} 2 & 0 \\ 0 & 3 \end{bmatrix}
+\begin{bmatrix} 1 & \frac{1}{2} \\ 0 & 1 \end{bmatrix}
+\quad\text{(}\quad LDU \quad\text{:}\quad \text{Lower Triangular, Diagonal, Upper Triangular Matrix} \quad\text{)}
+\end{align}
+```

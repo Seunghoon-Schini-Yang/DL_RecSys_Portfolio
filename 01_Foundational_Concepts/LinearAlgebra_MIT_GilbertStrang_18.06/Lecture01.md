@@ -292,11 +292,11 @@ L = E^{-1} = E_{1}^{-1}E_{2}^{-1}E_{3}^{-1}E_{4}^{-1}E_{5}^{-1}E_{6}^{-1}
 - How may operations on (n x n) matrix?
 <br>Time complexity : $\frac{1}{3}n^{3} \approx n^{2} + (n-1)^{2} + \cdots + 1^{2}$
 
-<br>
-**○ Transposes and Permutations**
-<br>We need to do row exchanges when zero shows up in the pivot position.
-<br>- Permutations ($3$ x $3$) : $3! = 6$
-<br>- Permutations ($n$ x $n$) : $n!$
+
+<br>**○ Transposes and Permutations**
+<br>We need to do row exchanges when zero shows up in the pivot position.<br>
+- Permutations ($3$ x $3$) : $3! = 6$<br>
+- Permutations ($n$ x $n$) : $n!$
 
 ```math
 \begin{align}

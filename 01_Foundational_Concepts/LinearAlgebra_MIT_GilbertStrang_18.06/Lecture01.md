@@ -187,7 +187,7 @@ C = \sum_{k=1}^n \vec{a}_{col_k} \cdot \vec{b}_{row_k}
 \end{align*}
 ```
 
-<br>**○ Inverse matrices**<br><br>
+<br>**○ Inverse matrices**<br>
 - For square matrix $A$,
 <br>if $A^{-1}$ exists, then $A$ is <b>invertible</b> and <b>non-singular</b>.
 
@@ -269,10 +269,9 @@ E_{2}\begin{bmatrix} E_{1}A & E_{1}I \end{bmatrix}
 ```
 <br>
 
-- if no row exchanges, multipliers go directly into L.<br>
-
-$L$ comes out with much simpler form,<br>
-while $E$ gets complicated.
+- if no row exchanges, multipliers go directly into L.
+<br>$L$ comes out with much simpler form,
+<br>while $E$ gets complicated.
 
 ```math
 \begin{align}
@@ -289,16 +288,15 @@ L = E^{-1} = E_{1}^{-1}E_{2}^{-1}E_{3}^{-1}E_{4}^{-1}E_{5}^{-1}E_{6}^{-1}
 \end{align}
 ```
 
-<br>- How may operations on (n x n) matrix?<br>
+<br>
+- How may operations on (n x n) matrix?
+<br>Time complexity : $\frac{1}{3}n^{3} \approx n^{2} + (n-1)^{2} + \cdots + 1^{2}$
 
-Time complexity : $\frac{1}{3}n^{3} \approx n^{2} + (n-1)^{2} + \cdots + 1^{2}$
+<br>**○ Transposes and Permutations**
+<br>We need to do row exchanges when zero shows up in the pivot position.
+<br>Permutations ($3$ x $3$) : $3! = 6$
+<br>Permutations ($n$ x $n$) : $n!$
 
-<br>- Transposes and Permutations<br>
-
-We need to do row exchanges when zero shows up in the pivot position.
-
-Permutations ($3$ x $3$) : $3! = 6$<br>
-Permutations ($n$ x $n$) : $n!$
 ```math
 \begin{align}
 P^{-1} = P^{T} \\\\

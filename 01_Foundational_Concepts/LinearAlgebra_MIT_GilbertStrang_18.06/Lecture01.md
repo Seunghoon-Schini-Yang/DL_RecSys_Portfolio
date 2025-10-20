@@ -247,9 +247,9 @@ E_{2}\begin{bmatrix} E_{1}A & E_{1}I \end{bmatrix}
 
 # 📚 Lecture 4: Factorization into A = LU
 
-<br>**○ LU Decomposition**
+<br>**○ LU, LDU Decomposition**
 
-- Example of LU and LDU Decomposition
+- Example
 
 ```math
 \begin{align}
@@ -309,4 +309,24 @@ P's \quad : \quad
 \begin{bmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{bmatrix} \quad
 \begin{bmatrix} 0 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 0 \end{bmatrix}
 \end{align}
+```
+
+<br>**○ PLU Decomposition**
+
+```math
+\begin{align*}
+P^{’}A = LU \quad(P^{’} = P_{3}P_{2}P_{1}) \\
+A = (P^{’})^{-1}LU {} &= P_{1}^{-1}P_{2}^{-1}P_{3}^{-1}LU \\\\
+&= P_{1}^{T}P_{2}^{T}P_{3}^{T}LU \\\\
+&= PLU \quad(P = P_{1}^{T}P_{2}^{T}P_{3}^{T})
+\end{align*}
+```
+
+
+# 📚 Lecture 5: Transposes, permutations, spaces $R^n$
+
+- Symmetric
+
+$RR^{T}$ : Why symmetric?
+<br>$(RR^{T})^{T} = RR^{T}$ : This is why.
 ```

@@ -321,12 +321,3 @@ A = (P^{’})^{-1}LU {} &= P_{1}^{-1}P_{2}^{-1}P_{3}^{-1}LU \\\\
 &= PLU \quad(P = P_{1}^{T}P_{2}^{T}P_{3}^{T})
 \end{align*}
 ```
-
-
-# 📚 Lecture 5: Transposes, permutations, spaces $R^n$
-
-- Symmetric
-
-$RR^{T}$ : Why symmetric?
-<br>$(RR^{T})^{T} = RR^{T}$ : This is why.
-```

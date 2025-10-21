@@ -247,7 +247,7 @@ E_{2}\begin{bmatrix} E_{1}A & E_{1}I \end{bmatrix}
 
 # 📚 Lecture 4: Factorization into A = LU
 
-<br>**○ LU, LDU Decomposition**
+<br>**○ LU & LDU Decomposition**
 
 - Example
 
@@ -315,9 +315,15 @@ P's \quad : \quad
 
 ```math
 \begin{align*}
-P^{’}A = LU \quad(P^{’} = P_{3}P_{2}P_{1}) \\
-A = (P^{’})^{-1}LU {} &= P_{1}^{-1}P_{2}^{-1}P_{3}^{-1}LU \\\\
-&= P_{1}^{T}P_{2}^{T}P_{3}^{T}LU \\\\
+P^{’}A = LU \quad(P^{’} = P_{3}P_{2}P_{1})
+\end{align*}
+```
+
+```math
+\begin{align*}
+A = (P^{’})^{-1}LU {}
+&= (P_{1}^{-1}P_{2}^{-1}P_{3}^{-1})LU \\\\
+&= (P_{1}^{T}P_{2}^{T}P_{3}^{T})LU \\\\
 &= PLU \quad(P = P_{1}^{T}P_{2}^{T}P_{3}^{T})
 \end{align*}
 ```

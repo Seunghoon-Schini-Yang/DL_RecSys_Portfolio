@@ -86,7 +86,6 @@ C(A) = \begin{cases}
 Ax = \begin{bmatrix} 1 & 1 & 2 \\ 2 & 1 & 3 \\ 3 & 1 & 4 \\ 4 & 1 & 5 \end{bmatrix}\begin{bmatrix} x_{1} \\ x_{2} \\ x_{3} \end{bmatrix} = \begin{bmatrix} b_{1} \\ b_{2} \\ b_{3} \\ b_{4} \end{bmatrix} = b
 ```
 
-
 <br>**○ Null Space**
 
 - Null Space is a vector space.
@@ -98,7 +97,7 @@ Ax = \begin{bmatrix} 1 & 1 & 2 \\ 2 & 1 & 3 \\ 3 & 1 & 4 \\ 4 & 1 & 5 \end{bmatr
 \end{align*}
 ```
 
-Solutions to Ax = 0 always give a subspace. (Contain at least zero vector.)<br>
+Solutions to $Ax = 0$ always give a subspace. (Contain zero vector at least.)<br>
 $N(A)$ (Null space of $A$) always contains zero vector.
 
 ```math
@@ -119,6 +118,34 @@ A(cv) = 0 \quad\text{(Multiplication)}
 Ax = \begin{bmatrix} 1 & 1 & 2 \\ 2 & 1 & 3 \\ 3 & 1 & 4 \\ 4 & 1 & 5 \end{bmatrix}\begin{bmatrix} x_{1} \\ x_{2} \\ x_{3} \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \\ 3 \\ 4 \end{bmatrix}
 ```
 
-In this case, the set of solutions x does not have zero vector. (Zero vector is not a solution.)<br>
+In this case, the set of solutions $x$ does not have zero vector. (Zero vector is not a solution.)<br>
 <b>Vector spaces have to go though the origin.</b><br>
 That's why the solutions for this system can't be a vector space.
+
+<br><br><br>
+
+# 📚 Lecture 7: Solving Ax = 0: pivot variables, special solutions
+
+```math
+\begin{align*}
+A = \begin{bmatrix} 1 & 2 & 2 & 2 \\ 2 & 4 & 6 & 8 \\ 3 & 6 & 8 & 10 \end{bmatrix} → \begin{bmatrix} 1 & 2 & 2 & 2 \\ 0 & 0 & 2 & 4 \\ 0 & 0 & 2 & 4 \end{bmatrix} → \begin{bmatrix} 1 & 2 & 2 & 2 \\ 0 & 0 & 2 & 4 \\ 0 & 0 & 0 & 0 \end{bmatrix} = U \quad\text{(Echelon form)}
+\end{align*}
+```
+
+We say that $x_{i}$ is a <b>free variable</b>,
+if its corresponding column in a row echelon form $U$ is not a pivot column.<br>
+We can assign any number "<b>freely</b>" to those free variables.<br>
+
+```math
+\begin{align*}
+Ux = \begin{bmatrix} 1 & 2 & 2 & 2 \\ 0 & 0 & 2 & 4 \\ 0 & 0 & 0 & 0 \end{bmatrix}
+\begin{bmatrix} x_{1} \\ x_{2} \\ x_{3} \\ x_{4} \end{bmatrix} \\
+\begin{cases}
+\text{pivot variables :} \quad x_{1}, x_{3} \\
+\text{free variables :} \quad x_{2}, x_{4}
+\end{cases}
+\end{align*}
+```
+
+"Rank of $A$" = "# of pivot variables" = $r$ = $2$<br>
+"# of free variables" = $n - r$ = $4 - 2$ = 2<br>

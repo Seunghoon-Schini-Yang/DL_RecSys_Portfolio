@@ -128,7 +128,7 @@ That's why the solutions for this system can't be a vector space.
 
 ```math
 \begin{align*}
-A = \begin{bmatrix} 1 & 2 & 2 & 2 \\ 2 & 4 & 6 & 8 \\ 3 & 6 & 8 & 10 \end{bmatrix} → \begin{bmatrix} 1 & 2 & 2 & 2 \\ 0 & 0 & 2 & 4 \\ 0 & 0 & 2 & 4 \end{bmatrix} → \begin{bmatrix} 1 & 2 & 2 & 2 \\ 0 & 0 & 2 & 4 \\ 0 & 0 & 0 & 0 \end{bmatrix} = U \quad\text{(Echelon form)}
+A = \begin{bmatrix} 1 & 2 & 2 & 2 \\ 2 & 4 & 6 & 8 \\ 3 & 6 & 8 & 10 \end{bmatrix} → \begin{bmatrix} 1 & 2 & 2 & 2 \\ 0 & 0 & 2 & 4 \\ 0 & 0 & 2 & 4 \end{bmatrix} → \begin{bmatrix} 1 & 2 & 2 & 2 \\ 0 & 0 & 2 & 4 \\ 0 & 0 & 0 & 0 \end{bmatrix} = U \quad\text{(row echelon form)}
 \end{align*}
 ```
 
@@ -149,3 +149,49 @@ Ux = \begin{bmatrix} 1 & 2 & 2 & 2 \\ 0 & 0 & 2 & 4 \\ 0 & 0 & 0 & 0 \end{bmatri
 
 "Rank of $A$" = "# of pivot variables" = $r$ = $2$<br>
 "# of free variables" = $n - r$ = $4 - 2$ = 2<br>
+
+```math
+\begin{align*}
+\begin{matrix}
+\begin{bmatrix} 1 & 2 & 2 & 2 \\ 0 & 0 & 2 & 4 \\ 0 & 0 & 0 & 0 \end{bmatrix} \\
+\text{(row echelon form)}
+\end{matrix} \quad → \quad
+\begin{matrix}
+\begin{bmatrix} 1 & 2 & 0 & -2 \\ 0 & 0 & 1 & 2 \\ 0 & 0 & 0 & 0 \end{bmatrix} \\
+\text{(reduced row echelon from)}
+\end{matrix} = R = rref(A)
+\end{align*}
+```
+<br>
+
+```math
+\begin{align*}
+\begin{bmatrix} 1 & 2 & 0 & -2 \\ 0 & 0 & 1 & 2 \\ 0 & 0 & 0 & 0 \end{bmatrix}
+\begin{bmatrix} x_{1} \\ x_{2} \\ x_{3} \\ x_{4} \end{bmatrix}
+→ \begin{bmatrix} 1 & 0 & 2 & -2 \\ 0 & 1 & 0 & 2 \\ 0 & 0 & 0 & 0 \end{bmatrix}
+\begin{bmatrix} x_{1} \\ x_{3} \\ x_{2} \\ x_{4} \end{bmatrix}
+\\ \text{(Exhange column 2 and 3)} \\\\\\
+R = \begin{bmatrix} \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} & \begin{pmatrix} 2 & -2 \\ 0 & 2 \end{pmatrix} \end{bmatrix} = \begin{bmatrix} \underset{(n_{p}\times n_{p})}I & \underset{(n_{p}\times n_{f})}F \end{bmatrix} \\
+\begin{cases}
+(I, F) \text{  : (pivot columns, free columns)} \\
+(n_{p}, n_{f}) \text{  : (num of pivot variables, num of free variables)}
+\end{cases}
+\end{align*}
+```
+
+- Null Space
+
+```math
+\begin{align*}
+Rx = 0 \\\\
+→ \begin{bmatrix} I & F \end{bmatrix} \begin{bmatrix} x_{pivot} \\ x_{free} \end{bmatrix} = 0 \\\\
+→ \begin{bmatrix} \underset{(n_{p}\times n_{p})}I & F \end{bmatrix} \begin{bmatrix} -F \\ \underset{(n_{f}\times n_{f})}I \end{bmatrix} = \underset{(n_{p}\times n_{f})}0 \quad\text{(Zero matrix.)}
+\end{align*}
+```
+
+```math
+\begin{align*}
+N(R) \text{  (Null space of  } R  \text{ ) : The linear combinations of columns of  } \begin{bmatrix} -F \\ I \end{bmatrix} \\
+N = \begin{bmatrix} -F \\ I \end{bmatrix}
+\end{align*}
+```

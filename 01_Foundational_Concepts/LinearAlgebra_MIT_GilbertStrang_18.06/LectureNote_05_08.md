@@ -195,3 +195,49 @@ N(R) \text{  (Null space of  } R  \text{ ) : The linear combinations of columns 
 N = \begin{bmatrix} -F \\ I \end{bmatrix}
 \end{align*}
 ```
+
+<br><br><br>
+
+# 📚 Lecture 8: Solving Ax = b: row reduced form R
+
+Solvability
+
+- $Ax = b$ is solvable when $b$ is in $C(A)$.
+- If a combination of rows of $A$ gives zero row, then same combination of entities of $b$ must give 0.
+
+```math
+\begin{align*}
+\text{Augemented matrix :}\quad \begin{bmatrix} A & b \end{bmatrix}
+= \begin{bmatrix} 1 & 2 & 2 & 2 & b_{1} \\ 2 & 4 & 6 & 8 & b_{2} \\ 3 & 6 & 8 & 10 & b_{3} \end{bmatrix} → \begin{bmatrix} 1 & 2 & 2 & 2 & b_{1} \\ 0 & 0 & 2 & 4 & b_{2}-2b_{1} \\ 0 & 0 & 0 & 0 & b_{3}-b_{2}-b_{1} \end{bmatrix} \\\\
+b_{3}-b_{2}-b_{1} = 0
+\end{align*}
+```
+$[1, 5, 6]$ satisfying $b_{3}-b_{2}-b_{1} = 0$ can be $b$.<br>
+
+```math
+b = \begin{bmatrix} b_{1} \\ b_{2} \\ b_{3} \end{bmatrix} = \begin{bmatrix} 1 \\ 5 \\ 6 \end{bmatrix}
+```
+
+To find complete solution to $Ax = b$.
+1. $x_{particular} = x_{p}$
+- Set all free variables to zero.
+- Solve $Ax = b$ for pivot variables.
+2. $x_{nullspace} = x_{n}$
+
+```math
+\begin{align*}
+\begin{bmatrix} 1 & 2 & 2 & 2 \\ 0 & 0 & 2 & 4 \\ 0 & 0 & 0 & 0 \end{bmatrix}
+\begin{bmatrix} x_{1} \\ x_{2} \\ x_{3} \\ x_{4} \end{bmatrix}
+= \begin{bmatrix} 1 \\ 3 \\ 0 \end{bmatrix}
+= \begin{bmatrix} b_{1} \\ b_{2}-2b_{1} \\ b_{3}-b_{2}-b_{1} \end{bmatrix} \\
+\begin{cases}
+\text{pivot variables :} \quad x_{1}, x_{3} \\
+\text{free variables :} \quad x_{2}, x_{4}
+\end{cases} \\\\
+\text{Set free variables}\quad x_{2} = x_{4} = 0 \\\\
+x_{p} = \begin{bmatrix} -2 \\ 0 \\ \frac{3}{2} \\ 0 \end{bmatrix} \quad
+\begin{cases}
+2x_{1} + 2x_{3} = 1 \\ 2x_{3} = 3
+\end{cases}
+\end{align*}
+```

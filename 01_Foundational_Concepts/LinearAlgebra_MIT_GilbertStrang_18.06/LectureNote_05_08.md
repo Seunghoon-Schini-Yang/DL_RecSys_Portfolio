@@ -222,7 +222,6 @@ To find complete solution to $Ax = b$.
 1. $x_{particular} = x_{p}$
 - Set all free variables to zero.
 - Solve $Ax = b$ for pivot variables.
-2. $x_{nullspace} = x_{n}$
 
 ```math
 \begin{align*}
@@ -234,10 +233,86 @@ To find complete solution to $Ax = b$.
 \text{pivot variables :} \quad x_{1}, x_{3} \\
 \text{free variables :} \quad x_{2}, x_{4}
 \end{cases} \\\\
-\text{Set free variables}\quad x_{2} = x_{4} = 0 \\\\
 x_{p} = \begin{bmatrix} -2 \\ 0 \\ \frac{3}{2} \\ 0 \end{bmatrix} \quad
 \begin{cases}
+x_{2} = x_{4} = 0 \quad\text{(Set free variables zero.)} \\
 2x_{1} + 2x_{3} = 1 \\ 2x_{3} = 3
 \end{cases}
 \end{align*}
+```
+
+2. $x_{nullspace} = x_{n}$
+
+```math
+\begin{align*}
+\begin{bmatrix} 1 & 2 & 2 & 2 \\ 0 & 0 & 2 & 4 \\ 0 & 0 & 0 & 0 \end{bmatrix}
+\begin{bmatrix} x_{1} \\ x_{2} \\ x_{3} \\ x_{4} \end{bmatrix}
+= \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix} \\
+\begin{cases}
+\text{pivot variables :} \quad x_{1}, x_{3} \\
+\text{free variables :} \quad x_{2}, x_{4}
+\end{cases} \\\\
+x_{n} = c_{1}x_{n1} + c_{2}x_{n2}
+= c_{1}\begin{bmatrix} -2 \\ 1 \\ 0 \\ 0 \end{bmatrix} + c_{2}\begin{bmatrix} 2 \\ 0 \\ -2 \\ 1 \end{bmatrix} \quad
+\begin{cases}
+(x_{2}, x_{4}) = (1, 0) \quad\text{for}\quad x_{n1} \\
+(x_{2}, x_{4}) = (0, 1) \quad\text{for}\quad x_{n2}
+\end{cases}
+\end{align*}
+```
+
+- $x_{complete}$
+
+```math
+\begin{align*}
+x_{complete} = x_{particular} + x_{nullspace} {}
+&= x_{p} + x_{n} \\\\
+&= \begin{bmatrix} -2 \\ 0 \\ \frac{3}{2} \\ 0 \end{bmatrix} + c_{1}\begin{bmatrix} -2 \\ 1 \\ 0 \\ 0 \end{bmatrix} + c_{2}\begin{bmatrix} 2 \\ 0 \\ -2 \\ 1 \end{bmatrix}
+\end{align*}
+```
+<br>
+
+Plot all solutions $x_{complete}$ in $R_{4}$.<br>
+Then "two-dimensional subspace (a plane) that doesn't go through the origin" comes out.
+
+```math
+\begin{align*}\begin{cases}
+x_{n} \quad\text{: Two-dimensional subspace (a plane)} \\
+x_{p} \quad\text{: Doesn't go through the origin}
+\end{cases}\end{align*}
+```
+
+**Rank**
+- $\Gamma$ : Rank of $(m \times n)$ matrix $A$.
+
+- Num of pivot variables cannot be bigger than $n$ and $m$<br>
+$(\Gamma <= m)$ and $(\Gamma <= n)$<br>
+
+- Full column rank $(\Gamma = n < m)$<br>
+In this case, there are no free variables.<br>
+Null space $N(A) = 0$ → $x_{n} = 0$.<br>
+$x_{complete} = x_{particular} + x_{nullspace} = x_{p}$<br>
+Unique solution (only one) if it exists.<br>
+(= This system has either $0$ or $1$ solution.)
+```math
+R = \begin{bmatrix} I \\ 0 \end{bmatrix}
+```
+
+- Full row rank $(\Gamma = m < n)$<br>
+In this case, can solve $Ax = b$ for every $b$.<br>
+Left with $(n - \Gamma) = (n - m)$ free variables.<br>
+This system has $\infty$ solutions.
+```math
+R = \begin{bmatrix} I & F \end{bmatrix}
+```
+
+- Full rank $(\Gamma = m = n)$<br>
+In this case, $A$ is invertible.<br>
+$rref(A) = I$ (Reduced row echelon form of $A$ is $I$.)<br>
+This system has only $1$ solution.
+
+- $(\Gamma < m)$ and $(\Gamma < n)$<br>
+This system has no solution or $\infty$ solutions.
+```math
+R = \begin{bmatrix} I & F \\ 0 & 0 \end{bmatrix}
 ```

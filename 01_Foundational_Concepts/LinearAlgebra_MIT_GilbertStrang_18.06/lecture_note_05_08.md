@@ -198,7 +198,7 @@ N = \begin{bmatrix} -F \\ I \end{bmatrix}
 
 <br><br><br>
 
-# 📚 Lecture 8: Solving Ax = b: row reduced form R
+# 📚 Lecture 8: Solving $Ax = b$ : row reduced form $R$
 
 Solvability
 

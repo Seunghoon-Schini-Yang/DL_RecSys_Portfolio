@@ -147,8 +147,8 @@ Ux = \begin{bmatrix} 1 & 2 & 2 & 2 \\ 0 & 0 & 2 & 4 \\ 0 & 0 & 0 & 0 \end{bmatri
 \end{align*}
 ```
 
-"Rank of $A$" = "# of pivot variables" = $r$ = $2$<br>
-"# of free variables" = $n - r$ = $4 - 2$ = 2<br>
+- (# of pivot variables) $= Rank(A) = \Gamma = 2$<br>
+- (# of free variables) $= (n - \Gamma) = (4 - 2) = 2$<br>
 
 ```math
 \begin{align*}
@@ -179,7 +179,7 @@ R = \begin{bmatrix} \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} & \begin{pmatri
 \end{align*}
 ```
 
-- Null Space
+**○ Null Space**
 
 ```math
 \begin{align*}
@@ -195,6 +195,19 @@ N(R) \text{  (Null space of  } R  \text{ ) : The linear combinations of columns 
 N = \begin{bmatrix} -F \\ I \end{bmatrix}
 \end{align*}
 ```
+
+**○ $x_{n}$ : Special Solutions**
+- Specific vectors in the <b>null space</b> of a matrix $A$ for the equation $Ax = 0$.<br>
+They are found by setting one free variable to $1$ and all other free variables to $0$,<br>
+then solving for the pivot variables.<br>
+Each free variable generates a unique special solution.
+
+
+**○ $x_{p}$ : Particular Solution**
+- Consider a linear system of equations with infinite solutions.<br>
+A particular solution is <b>one solution out of the infinite set of possible solutions</b>.<br>
+The easiest way to find a particular solution is to <b>pick values for the free variables</b>,<br>
+which then determines the values of the pivot variables.<br>
 
 <br><br><br>
 

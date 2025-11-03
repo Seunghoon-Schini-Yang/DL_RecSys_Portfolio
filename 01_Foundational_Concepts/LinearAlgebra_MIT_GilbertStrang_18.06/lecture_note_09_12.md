@@ -227,9 +227,42 @@ dim(N(A^{T})) = m - \Gamma = 1 - 1 = 0
 \text{One of basis for  } S : \quad \begin{bmatrix} -1 \\ 1 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} -1 \\ 0 \\ 1 \\ 0 \end{bmatrix}, \begin{bmatrix} -1 \\ 0 \\ 0 \\ 1 \end{bmatrix}
 \end{align*}
 ```
-<br>
 
-**○ Small World Graphs**<br>
- Graph = {nodes, edges}
+<br><br><br>
 
+# 📚 Lecture 12: Graphs, networks, incidence matrices
 
+**○ Directed Graph**<br>
+
+- $(m, n)$ = (# of edges, # of nodes)
+
+```math
+\begin{align*}
+\begin{matrix} \text{node 1} & \text{node 2} & \text{node 3} & \text{node 4} \end{matrix} \\
+\text{Incidence Matrix :}\quad A = \begin{bmatrix} -1 & 1 & 0 & 0 \\ 0 & -1 & 1 & 0 \\ -1 & 0 & 1 & 0 \\ -1 & 0 & 0 & 1 \\ 0 & 0 & -1 & 1 \end{bmatrix}
+\begin{matrix} \text{edge 1 (node 1 to 2)} \\ \text{edge 2 (node 2 to 3)} \\ \text{edge 3 (node 1 to 3)} \\ \text{edge 4 (node 1 to 4)} \\ \text{edge 5 (node 3 to 4)} \end{matrix}
+\end{align*}
+```
+
+The Incidence Matrix is a very <b>sparse</b> matrix.<br>
+Every row has only two non-zero values.<br>
+
+- Loops (<b>linearly dependent</b>)<br>
+① edge 3 (1 → 3) = edge 1 (1 → 2) + edge 2 (2 → 3)<br>
+② edge 4 (1 → 4) = edge 1 (1 → 2) + edge 2 (2 → 3) + edge 5 (3 → 4)<br>
+
+- $N(A)$ : Null Space of $A$
+
+```math
+\begin{align*}
+Ax = \begin{bmatrix} -1 & 1 & 0 & 0 \\ 0 & -1 & 1 & 0 \\ -1 & 0 & 1 & 0 \\ -1 & 0 & 0 & 1 \\ 0 & 0 & -1 & 1 \end{bmatrix} \begin{bmatrix} x_{1} \\ x_{2} \\ x_{3} \\ x{4} \end{bmatrix} = \begin{bmatrix} x_{2}-x_{1} \\ x_{3}-x_{2} \\ x_{3}-x_{1} \\ x_{4}-x_{1} \\ x_{4}-x_{3} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \end{bmatrix} \\\\
+\begin{cases}
+x = \begin{bmatrix} x_{1} \\ x_{2} \\ x_{3} \\ x_{4} \end{bmatrix} \quad\text{: Potentials at nodes} \\
+Ax = \begin{bmatrix} x_{2}-x_{1} \\ x_{3}-x_{2} \\ x_{3}-x_{1} \\ x_{4}-x_{1} \\ x_{4}-x_{3} \end{bmatrix} \quad\text{: Potential differences}
+\end{cases}
+\end{align*}
+```
+
+```math
+x = c \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix},\quad dim(N(A)) = 1
+```

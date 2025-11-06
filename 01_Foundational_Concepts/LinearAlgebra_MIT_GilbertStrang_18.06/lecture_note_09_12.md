@@ -343,4 +343,19 @@ Adding a new edge into this network makes a new loop.<br>
 ```
 <br>
 
-**○ Tree : Graph with no loops.**<br>
+- Basic equation of applied math
+
+```math
+\begin{align*}
+\begin{cases}
+e = Ax \quad\text{(Potential Differencces)} \\
+y = Ce \quad\text{(Currunces come from potential differences)} \\
+A^{T}y = 0 \quad\text{(Currences satisfies Kirchoff's Current Low)}
+\end{cases} \\\\\\
+A^{T}CAx = f \quad (f \text{  : Current sources}) \\
+(A^{T}CA \quad\text{: Symmetric})
+\end{align*}
+```
+<br>
+
+**○ Tree : Graph with no loops**

@@ -25,7 +25,6 @@ s^{T}t = 0 \quad (\vec{s} \in S, \vec{t} \in T)
 <br>
 
 - Row space is orthogonal to Null space.<br>
-Null space and Row space are <b>orthogonal complements</b> in $`R^{n}`$.
 
 ```math
 \begin{align}
@@ -38,9 +37,21 @@ Ax = \begin{bmatrix} \vec{row_{1}} \\ \vec{row_{2}} \\ \vdots \\ \vec{row_{m}} \
 \text{(All vectors from Row space)} \quad\perp\quad \text{(All vectors from Null space)}
 \end{align}
 ```
+<br>
+
+- Null space and Row space are <b>orthogonal complements</b> in $`R^{n}`$.
+
+```math
+\begin{cases}
+C(A^{T}) \perp N(A) \\
+n = dim(C(A^{T})) + dim(N(A))
+\end{cases}
+```
 <br><br>
 
-- $`A^{T}A`$ : Square, Symmetric
+- $`A^{T}A`$ is <b>Square</b> and <b>Symmetric</b><br>
+Square : $`(n \times m) \cdot (m \times n) = (n \times n)`$<br>
+Symmetric : $`(A^{T}A)^{T} = A^{T}A`$
 
 - $`Ax = b`$ has solution when <b>$`A^{T}A`$ is invertible.</b>
 
@@ -86,11 +97,26 @@ A = \begin{bmatrix} 1 & 3 \\ 1 & 3 \\ 1 & 3 \end{bmatrix} \quad (rank(A) = \Gamm
 A^{T}A = \begin{bmatrix} 1 & 1 & 1 \\ 3 & 3 & 3 \end{bmatrix} \begin{bmatrix} 1 & 3 \\ 1 & 3 \\ 1 & 3 \end{bmatrix} = \begin{bmatrix} 3 & 9 \\ 9 & 27 \end{bmatrix} \quad (rank(A^{T}A) = 1)
 \end{cases}\end{align}
 ```
+<br><br>
 
-- $`rank(A) = rank(A^{T}A)`$
+- From ① and ②, $`N(A) = N(A^{T}A)`$
 
-- $`N(A) = N(A^{T}A)`$
+```math
+\begin{align}
+\text{①}\quad \begin{cases}
+\text{If}\quad \vec{x} \in N(A) \quad (A\vec{x} = \vec{0}) \\
+\text{then}\quad \vec{x} \in N(A^{T}A) \quad (A^{T}A\vec{x} = A^{T}\vec{0} = \vec{0}) \\
+\text{Thus}\quad N(A) \subset N(A^{T}A)
+\end{cases} \\\\
 
+\text{②}\quad \begin{cases}
+\text{If}\quad \vec{x} \in N(A^{T}A) \quad (A^{T}A\vec{x} = \vec{0}) \\
+\text{then}\quad \vec{x} \in N(A) \quad (A\vec{x} = \vec{0}) \\
+\Big( \because\quad \vec{x}^{T}(A^{T}A)\vec{x} = (\vec{x}^{T}A^{T})(A\vec{x}) = (A\vec{x})^{T}(A\vec{x}) = \lVert A\vec{x} \rVert^{2} = \vec{0} \Big) \\
+\text{Thus}\quad N(A^{T}A) \subset N(A)
+\end{cases}
+\end{align}
+```
 
-
-
+- $`rank(A) = rank(A^{T}A)`$<br>
+$`\Big( \because\quad rank(A) = n - dim(N(A)) = n - dim(N(A^{T}A)) = rank(A^{T}A) \Big)`$

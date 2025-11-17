@@ -112,7 +112,7 @@ A^{T}A = \begin{bmatrix} 1 & 1 & 1 \\ 3 & 3 & 3 \end{bmatrix} \begin{bmatrix} 1 
 \text{②}\quad \begin{cases}
 \text{If}\quad \vec{x} \in N(A^{T}A) \quad (A^{T}A\vec{x} = \vec{0}) \\
 \text{then}\quad \vec{x} \in N(A) \quad (A\vec{x} = \vec{0}) \\
-\Big( \because\quad \vec{x}^{T}(A^{T}A)\vec{x} = (\vec{x}^{T}A^{T})(A\vec{x}) = (A\vec{x})^{T}(A\vec{x}) = \lVert A\vec{x} \rVert^{2} = \vec{0} \Big) \\
+\Big( \because\quad \vec{x}^{T}(A^{T}A)\vec{x} = (\vec{x}^{T}A^{T})(A\vec{x}) = (A\vec{x})^{T}(A\vec{x}) = \lVert A\vec{x} \rVert^{2} = 0 \Big) \\
 \text{Thus}\quad N(A^{T}A) \subset N(A)
 \end{cases}
 \end{align}
@@ -120,3 +120,42 @@ A^{T}A = \begin{bmatrix} 1 & 1 & 1 \\ 3 & 3 & 3 \end{bmatrix} \begin{bmatrix} 1 
 
 - $`rank(A) = rank(A^{T}A)`$<br>
 $`\Big( \because\quad rank(A) = n - dim(N(A)) = n - dim(N(A^{T}A)) = rank(A^{T}A) \Big)`$
+
+<br><br><br>
+
+# 📚 Lecture 15: Projections onto subspaces
+
+**○ Projections**
+
+```math
+\begin{align}
+\text{For}\quad \vec{\underset{(n \times 1)}a}, \vec{\underset{(n \times 1)}b} \quad
+\begin{cases}
+\vec{a}^{T}(\vec{b} - k\vec{a}) = 0 \\
+k\vec{a}^{T}\vec{a} = \vec{a}^{T}\vec{b} \\
+k = \frac{\vec{a}^{T}\vec{b}}{\vec{a}^{T}\vec{a}}
+\end{cases} \\\\
+
+\text{proj.}\quad \vec{p} = \vec{a}k = \vec{a}\frac{\vec{a}^{T}\vec{b}}{\vec{a}^{T}\vec{a}}
+= (\frac{\vec{a}\vec{a}^{T}}{\vec{a}^{T}\vec{a}})\vec{b} = \underset{(n \times n)}P\vec{b} \\\\
+P = \frac{\vec{a}\vec{a}^{T}}{\vec{a}^{T}\vec{a}}
+\end{align}
+```
+
+$C(P)$ : Line through $\vec{a}$<br>
+$rank(P) = 1$<br>
+$P^{T} = P$<br>
+$P^{2} = P$ : Project twice, get the same answer as did in the first projection.<br>
+
+Why project?
+Because Ax = b may have no solution.
+To choose the closest vector in the column space.
+Solve A\hat{x} = p instead of b.
+(p : proj. of b onto the column space.)
+
+
+plane of \vec{a_{1}}, \vec{a_{2}} = column space of A = [\vec{a_{1}} \vec{a_{2}}]
+\vec{p} = \hat{x}_{1}\vec{a_{1}} + \hat{x}_{2}\vec{a_{2}}
+\vec{p} = A\hat{\vec{x}}
+Find \hat{\vec{x}}
+key : e = b - p = b - A\hat{\vec{x}} is perpendicular to the plane.

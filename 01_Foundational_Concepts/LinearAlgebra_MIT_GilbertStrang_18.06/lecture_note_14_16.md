@@ -147,15 +147,30 @@ $rank(P) = 1$<br>
 $P^{T} = P$<br>
 $P^{2} = P$ : Project twice, get the same answer as did in the first projection.<br>
 
-Why project?
-Because Ax = b may have no solution.
-To choose the closest vector in the column space.
-Solve A\hat{x} = p instead of b.
-(p : proj. of b onto the column space.)
+Why project?<br>
+Because $Ax = b$ may have no solution.<br>
+To choose the closest vector in the column space.<br>
+Solve $A\hat{x} = p$ instead of $b$.<br>
+($p$ : proj. of $b$ onto the column space.)<br>
 
+plane of $(\vec{a_{1}}, \vec{a_{2}}) = C(A) =$ Column space of $A$<br>
+$(A = [\vec{a_{1}} \vec{a_{2}}])$<br>
+$\vec{p} = \hat{x_{1}}\vec{a_{1}} + \hat{x_{2}}\vec{a_{2}} = A\vec{\hat{x}}$<br><br>
+Find $\vec{\hat{x}}$<br>
+key : $(\vec{e} = \vec{b}-\vec{p} = \vec{b}-A\vec{\hat{x}})$ is perpendicular to the plane.
 
-plane of \vec{a_{1}}, \vec{a_{2}} = column space of A = [\vec{a_{1}} \vec{a_{2}}]
-\vec{p} = \hat{x}_{1}\vec{a_{1}} + \hat{x}_{2}\vec{a_{2}}
-\vec{p} = A\hat{\vec{x}}
-Find \hat{\vec{x}}
-key : e = b - p = b - A\hat{\vec{x}} is perpendicular to the plane.
+```math
+\begin{align}
+\begin{cases}
+\vec{a_{1}}^{T}(\vec{b}-A\vec{\hat{x}}) = 0 \\
+\vec{a_{2}}^{T}(\vec{b}-A\vec{\hat{x}}) = 0
+\end{cases} \\\\
+\text{→}\quad \begin{bmatrix} \vec{a_{1}}^{T} \\ \vec{a_{2}}^{T} \end{bmatrix} (\vec{b}-A\vec{\hat{x}}) = A^{T} (\vec{b}-A\vec{\hat{x}}) = \begin{bmatrix} 0 \\ 0 \end{bmatrix} \\\\
+A^{T}A\vec{\hat{x}} = A^{T}\vec{b} \\
+\vec{\hat{x}} = (A^{T}A)^{-1}A^{T}\vec{b} \\
+\vec{\hat{p}} = A\vec{\hat{x}} = A(A^{T}A)^{-1}A^{T}\vec{b}
+\end{align}
+```
+
+e = b-Ax \in N(A^{T})
+e \perp C(A)

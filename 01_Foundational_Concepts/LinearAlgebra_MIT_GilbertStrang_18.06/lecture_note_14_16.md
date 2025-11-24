@@ -144,8 +144,6 @@ P = \frac{\vec{a}\vec{a}^{T}}{\vec{a}^{T}\vec{a}}
 
 $C(P)$ : Line through $\vec{a}$<br>
 $rank(P) = 1$<br>
-$P^{T} = P$<br>
-$P^{2} = P$ : Project twice, get the same answer as did in the first projection.<br>
 
 Why project?<br>
 Because $Ax = b$ may have no solution.<br>
@@ -160,17 +158,47 @@ Find $\vec{\hat{x}}$<br>
 key : $(\vec{e} = \vec{b}-\vec{p} = \vec{b}-A\vec{\hat{x}})$ is perpendicular to the plane.
 
 ```math
+e (= b-Ax) \in N(A^{T})
+e \perp C(A)
+```
+
+```math
 \begin{align}
 \begin{cases}
 \vec{a_{1}}^{T}(\vec{b}-A\vec{\hat{x}}) = 0 \\
 \vec{a_{2}}^{T}(\vec{b}-A\vec{\hat{x}}) = 0
 \end{cases} \\\\
 \text{→}\quad \begin{bmatrix} \vec{a_{1}}^{T} \\ \vec{a_{2}}^{T} \end{bmatrix} (\vec{b}-A\vec{\hat{x}}) = A^{T} (\vec{b}-A\vec{\hat{x}}) = \begin{bmatrix} 0 \\ 0 \end{bmatrix} \\\\
+\begin{cases}
 A^{T}A\vec{\hat{x}} = A^{T}\vec{b} \\
 \vec{\hat{x}} = (A^{T}A)^{-1}A^{T}\vec{b} \\
-\vec{\hat{p}} = A\vec{\hat{x}} = A(A^{T}A)^{-1}A^{T}\vec{b}
+\vec{\hat{p}} = A\vec{\hat{x}} = A(A^{T}A)^{-1}A^{T}\vec{b} = P\vec{b} \end{cases} \\
+\text{→}\quad\therefore\quad P = A(A^{T}A)^{-1}A^{T} \\
 \end{align}
 ```
 
-e = b-Ax \in N(A^{T})
-e \perp C(A)
+- $P^{T} = P$ : Symmetric<br>
+
+```math
+\begin{align}
+P^{T} {} &= (A(A^{T}A)^{-1}A^{T})^{T} \\
+&= (A^{T})^{T}((A^{T}A)^{-1})^{T}A^{T} \\
+&= A(A^{T}A)^{-1}A^{T} \quad<\because\quad (M^{-1})^{T} = (M^{T})^{-1}> \\
+&= P
+\end{align}
+```
+
+- $P^{2} = P$ : Project twice, get the same answer as did in the first projection.<br>
+
+```math
+\begin{align}
+P^{2} = PP {} &= (A(A^{T}A)^{-1}A^{T})(A(A^{T}A)^{-1}A^{T}) \\
+&= A(A^{T}A)^{-1}(A^{T}A)(A^{T}A)^{-1}A^{T} \\
+&= A(A^{T}A)^{-1}A^{T} \\
+&= P
+\end{align}
+```
+
+**○ Least Squares**
+
+Fitting by a line

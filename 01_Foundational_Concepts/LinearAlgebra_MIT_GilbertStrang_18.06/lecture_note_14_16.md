@@ -126,6 +126,9 @@ $`\Big( \because\quad rank(A) = n - dim(N(A)) = n - dim(N(A^{T}A)) = rank(A^{T}A
 # 📚 Lecture 15: Projections onto subspaces
 
 **○ Projections**
+<p align="center">
+    <img src="images/lecture_15_01.jpg" alt="img_15_01" width="400">
+</p>
 
 ```math
 \begin{align}
@@ -158,8 +161,10 @@ Find $\vec{\hat{x}}$<br>
 key : $(\vec{e} = \vec{b}-\vec{p} = \vec{b}-A\vec{\hat{x}})$ is perpendicular to the plane.
 
 ```math
-e (= b-Ax) \in N(A^{T})
+\begin{align}
+e (= b-Ax) \in N(A^{T}) \\
 e \perp C(A)
+\end{align}
 ```
 
 ```math
@@ -198,7 +203,34 @@ P^{2} = PP {} &= (A(A^{T}A)^{-1}A^{T})(A(A^{T}A)^{-1}A^{T}) \\
 &= P
 \end{align}
 ```
+<br>
 
 **○ Least Squares**
 
-Fitting by a line
+- Fitting by a line
+<!-- ![LeastSquares-15-01](images/lecture_15_02.jpg) -->
+<p align="center">
+    <img src="images/lecture_15_02.jpg" alt="img_15_02" width="400">
+</p>
+
+For 3 points : $[(1,1), (2,2), (3,2)]$
+
+```math
+\begin{align}
+b = c + dt \\\\
+\begin{cases}
+c + d = 1 \\
+c + 2d = 2 \\
+c + 3d = 2
+\end{cases} \\\\
+Ax = b \quad\text{→}\quad \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 1 & 3 \end{bmatrix}\begin{bmatrix} c \\ d \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \\ 2 \end{bmatrix}
+\end{align}
+```
+
+There is no solution for this system,<br>
+but we can find the best solution multiplying $A^{T}$.<br>
+$(A\vec{x} = \vec{b})$ → $(A^{T}A\vec{\hat{x}} = A^{T}\vec{b})$
+
+
+
+

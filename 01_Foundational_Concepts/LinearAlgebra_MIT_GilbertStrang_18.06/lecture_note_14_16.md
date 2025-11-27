@@ -148,13 +148,13 @@ P = \frac{\vec{a}\vec{a}^{T}}{\vec{a}^{T}\vec{a}}
 $C(P)$ : Line through $\vec{a}$<br>
 $rank(P) = 1$<br>
 
-Why project?<br>
-Because $Ax = b$ may have no solution.<br>
-To choose the closest vector in the column space.<br>
-Solve $A\hat{x} = p$ instead of $b$.<br>
-($p$ : proj. of $b$ onto the column space.)<br>
+- Why project?<br>
+Because $A\vec{x} = \vec{b}$ may have no solution.<br>
+To choose the closest vector in the column space,<br>
+solve $A\vec{\hat{x}} = \vec{p}$ instead of $\vec{b}$.<br>
+($\vec{p}$ : proj. of $\vec{b}$ onto the column space.)<br>
 
-plane of $(\vec{a_{1}}, \vec{a_{2}}) = C(A) =$ Column space of $A$<br>
+plane of $(\vec{a_{1}}, \vec{a_{2}}) = C(A)$ (→ Column space of $A$)<br>
 $(A = [\vec{a_{1}} \vec{a_{2}}])$<br>
 $\vec{p} = \hat{x_{1}}\vec{a_{1}} + \hat{x_{2}}\vec{a_{2}} = A\vec{\hat{x}}$<br><br>
 Find $\vec{\hat{x}}$<br>
@@ -162,8 +162,8 @@ key : $(\vec{e} = \vec{b}-\vec{p} = \vec{b}-A\vec{\hat{x}})$ is perpendicular to
 
 ```math
 \begin{align}
-e (= b-Ax) \in N(A^{T}) \\
-e \perp C(A)
+\vec{e} (= \vec{b}-A\vec{x}) \in N(A^{T}) \\
+\vec{e} \perp C(A)
 \end{align}
 ```
 
@@ -203,6 +203,45 @@ P^{2} = PP {} &= (A(A^{T}A)^{-1}A^{T})(A(A^{T}A)^{-1}A^{T}) \\
 &= P
 \end{align}
 ```
+
+<br><br><br>
+
+# 📚 Lecture 16: Projection matrices and least squares
+
+If $\vec{b}$ $\in$ column space, then $P\vec{b} = \vec{b}$
+```math
+\begin{align}
+P\vec{b} {} &= A(A^{T}A)^{-1}A^{T}\vec{b} \\
+&= A(A^{T}A)^{-1}A^{T}A\vec{x} \quad (\vec{b} = A\vec{x}, \quad \because \ \vec{b} \in \text{column space}) \\
+&= A\vec{x} \\
+&= \vec{b}
+\end{align}
+```
+<br>
+
+If $\vec{b}$ $\perp$ column space, then $P\vec{b} = \vec{0}$
+```math
+\begin{align}
+P\vec{b} {} &= A(A^{T}A)^{-1}A^{T}\vec{b} \\
+&= A(A^{T}A)^{-1}\vec{0} \quad (A^{T}\vec{b} = \vec{0}, \quad \because \ \vec{b} \perp \text{column space}) \\
+&= \vec{0}
+\end{align}
+```
+<br>
+
+$\vec{e} = (I-P)\vec{b}$,<br>
+where $(I-P)$ is proj. onto $N(A^{T})$.
+<p align="center">
+    <img src="images/lecture_15_02.jpg" alt="img_15_02" width="400">
+</p>
+
+```math
+\begin{align}
+\vec{b} {} &= \vec{p} + \vec{e} \\
+&= P\vec{b} + (I-P)\vec{b}
+\end{align}
+```
+
 <br>
 
 **○ Least Squares**
@@ -223,14 +262,67 @@ c + d = 1 \\
 c + 2d = 2 \\
 c + 3d = 2
 \end{cases} \\\\
-Ax = b \quad\text{→}\quad \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 1 & 3 \end{bmatrix}\begin{bmatrix} c \\ d \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \\ 2 \end{bmatrix}
+A\vec{x} = \vec{b} \quad\text{→}\quad \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 1 & 3 \end{bmatrix}\begin{bmatrix} c \\ d \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \\ 2 \end{bmatrix}
 \end{align}
 ```
 
 There is no solution for this system,<br>
 but we can find the best solution multiplying $A^{T}$.<br>
 $(A\vec{x} = \vec{b})$ → $(A^{T}A\vec{\hat{x}} = A^{T}\vec{b})$
+<br><br>
 
+```math
+\begin{align}
+\text{Minimize} \quad \lVert A\vec{\hat{x}} - \vec{b} \rVert^{2} {} &= \lVert \vec{e} \rVert^{2} \\
+&= e_{1}^{2} + e_{2}^{2} + e_{3}^{2}
+\end{align}
+```
 
+```math
+\begin{align}
+
+\text{Find}\quad \vec{\hat{x}} = \begin{bmatrix} \hat{c} \\ \hat{d} \end{bmatrix} \\\\
+
+\begin{cases}
+A^{T}A = \begin{bmatrix} 1 & 1 & 1 \\ 1 & 2 & 3 \end{bmatrix}\begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 1 & 3 \end{bmatrix} = \begin{bmatrix} 3 & 6 \\ 6 &  14 \end{bmatrix} \\
+A^{T}\vec{b} = \begin{bmatrix} 1 & 1 & 1 \\ 1 & 2 & 3 \end{bmatrix}\begin{bmatrix} 1 \\ 2 \\ 2 \end{bmatrix} = \begin{bmatrix} 5 \\ 11 \end{bmatrix} \quad
+\end{cases} \\\\
+
+A^{T}A\vec{\hat{x}} = A^{T}\vec{b} \quad \text{→} \quad
+\begin{bmatrix} 3 & 6 \\ 6 & 14 \end{bmatrix}\begin{bmatrix} \hat{c} \\ \hat{d} \end{bmatrix} = \begin{bmatrix} 5 \\ 11 \end{bmatrix} \\
+
+\begin{cases}
+3\hat{c} + 6\hat{d} = 5 \\
+6\hat{c} + 14\hat{d} = 11
+\end{cases} \quad \text{→} \quad
+\begin{cases}
+\hat{c} = \frac{2}{3} \\
+\hat{d} = \frac{1}{2} \\
+\end{cases}
+\end{align}
+```
+
+```math
+\begin{align}
+\text{Minimize} \quad \lVert A\vec{\hat{x}} - \vec{b} \rVert^{2} {} &= \lVert \vec{e} \rVert^{2} \\
+&= e_{1}^{2} + e_{2}^{2} + e_{3}^{2} \\
+&= (\hat{c}+\hat{d}-1)^{2} + (\hat{c}+2\hat{d}-2)^{2} + (\hat{c}+3\hat{d}-2)^{2} \\
+&= 3\hat{c}^{2} + 14\hat{d}^{2}+9+12\hat{c}\hat{d}-10\hat{c}-22\hat{d} \\
+&= f(\hat{c},\hat{d})
+\end{align}
+```
+
+```math
+\begin{align}
+\begin{cases}
+\frac{\partial f}{\partial \hat{c}} = 6\hat{c} + 12\hat{d} - 10 = 0 \\
+\frac{\partial f}{\partial \hat{d}} = 12\hat{c} + 28\hat{d} - 22 = 0
+\end{cases} \quad \text{→} \quad
+\begin{cases}
+\hat{c} = \frac{2}{3} \\
+\hat{d} = \frac{1}{2} \\
+\end{cases}
+\end{align}
+```
 
 

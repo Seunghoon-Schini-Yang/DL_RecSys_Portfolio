@@ -326,3 +326,44 @@ A^{T}A\vec{\hat{x}} = A^{T}\vec{b} \quad \text{→} \quad
 ```
 
 
+```math
+\begin{align}
+\vec{p} = \hat{c} + \hat{d}\vec{t} {} &= \frac{2}{3} + \frac{1}{2}\vec{t} \\
+&= \begin{bmatrix} \frac{2}{3} \\ \frac{2}{3} \\ \frac{2}{3} \end{bmatrix} + \frac{1}{2}\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}
+= \begin{bmatrix} \frac{7}{6} \\ \frac{5}{3} \\ \frac{13}{6} \end{bmatrix}
+\end{align}
+```
+
+```math
+\vec{e} = \vec{b} - \vec{p} = \begin{bmatrix} 1 \\ 2 \\ 2 \end{bmatrix} - \begin{bmatrix} \frac{7}{6} \\ \frac{5}{3} \\ \frac{13}{6} \end{bmatrix} = \begin{bmatrix} -\frac{1}{6} \\ \frac{1}{3} \\ -\frac{1}{6} \end{bmatrix}
+```
+
+```math
+\begin{align}
+\vec{e} \cdot \vec{p} = 0 \quad (\because \: \vec{e} \perp \vec{p}) \\\\
+\vec{e}^{T}A = \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 1 & 3 \end{bmatrix} = \begin{bmatrix} 0 & 0 \end{bmatrix} \quad (\because \: \vec{e} \perp C(A))
+\end{align}
+```
+<br>
+
+- If $A$ has independent columns, then $A^{T}A$ is invertible.<br>
+Suppose $A^{T}A\vec{x} = 0$, then $\vec{x}$ must be $\vec{0}$ for $A^{T}A$ to be invertible.
+```math
+\begin{align}
+A^{T}A\vec{x} = \vec{0} \quad\text{→}\quad
+\begin{cases}
+\vec{x}^{T}A^{T}A\vec{x} = 0 \\
+(A\vec{x})^{T}(A\vec{x}) = \lVert A\vec{x} \rVert^{2} = 0 \\
+A\vec{x} = \vec{0}
+\end{cases} \\
+\text{→}\quad \vec{x} = \vec{0} \quad (\because \: A \: \text{has independent columns.}) \\
+\text{→}\quad \therefore \: A^{T}A \: \text{is invertible.}
+\end{align}
+```
+<br>
+
+- Columns definitely independent if they are perpendicular unit vectors. (= Orthonormal)
+```math
+\text{ex)} \quad \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+```
+

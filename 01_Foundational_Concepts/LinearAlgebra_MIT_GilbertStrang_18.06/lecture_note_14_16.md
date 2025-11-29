@@ -255,7 +255,7 @@ For 3 points : $[(1,1), (2,2), (3,2)]$
 
 <!-- ![LeastSquares-15-01](images/lecture_15_02.jpg) -->
 <p align="center">
-    <img src="images/lecture_15_02.jpg" alt="img_15_02" width="400">
+    <img src="images/lecture_16_01.jpg" alt="img_16_01" width="400">
 </p>
 
 ```math
@@ -337,7 +337,7 @@ A^{T}A\vec{\hat{x}} = A^{T}\vec{b} \quad \text{→} \quad
 - Find $\vec{p}$ and $\vec{e}$.
 
 <p align="center">
-    <img src="images/lecture_15_03.jpg" alt="img_15_03" width="500">
+    <img src="images/lecture_16_02.jpg" alt="img_16_02" width="600">
 </p>
 
 ```math
@@ -358,13 +358,13 @@ A^{T}A\vec{\hat{x}} = A^{T}\vec{b} \quad \text{→} \quad
 : perpendicular to $\vec{p}$. $(\because \: \vec{p} \in C(A))$
 
 <p align="center">
-    <img src="images/lecture_15_04.jpg" alt="img_15_04" width="500">
+    <img src="images/lecture_16_03.jpg" alt="img_16_03" width="400">
 </p>
 
 ```math
 \begin{align}
 \vec{e} \cdot \vec{p} = 0 \quad (\because \: \vec{e} \perp \vec{p}) \\\\
-\vec{e}^{T}A = \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 1 & 3 \end{bmatrix} = \begin{bmatrix} 0 & 0 \end{bmatrix} \quad (\because \: \vec{e} \perp C(A))
+\vec{e}^{T}A = \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 1 & 3 \end{bmatrix} = \begin{bmatrix} 0 & 0 \end{bmatrix} \quad (\because \: \vec{e} \perp C(A) \quad\text{and}\quad \vec{e} \in N(A^{T}))
 \end{align}
 ```
 <br>
@@ -389,4 +389,3 @@ A\vec{x} = \vec{0}
 ```math
 \text{ex)} \quad \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
 ```
-

@@ -208,7 +208,7 @@ P^{2} = PP {} &= (A(A^{T}A)^{-1}A^{T})(A(A^{T}A)^{-1}A^{T}) \\
 
 # 📚 Lecture 16: Projection matrices and least squares
 
-If $\vec{b}$ $\in$ column space, then $P\vec{b} = \vec{b}$
+- If $\vec{b}$ $\in$ column space, then $P\vec{b} = \vec{b}$
 ```math
 \begin{align}
 P\vec{b} {} &= A(A^{T}A)^{-1}A^{T}\vec{b} \\
@@ -219,7 +219,7 @@ P\vec{b} {} &= A(A^{T}A)^{-1}A^{T}\vec{b} \\
 ```
 <br>
 
-If $\vec{b}$ $\perp$ column space, then $P\vec{b} = \vec{0}$
+- If $\vec{b}$ $\perp$ column space, then $P\vec{b} = \vec{0}$
 ```math
 \begin{align}
 P\vec{b} {} &= A(A^{T}A)^{-1}A^{T}\vec{b} \\
@@ -229,11 +229,15 @@ P\vec{b} {} &= A(A^{T}A)^{-1}A^{T}\vec{b} \\
 ```
 <br>
 
-$\vec{e} = (I-P)\vec{b}$,<br>
-where $(I-P)$ is proj. onto $N(A^{T})$.
-<p align="center">
-    <img src="images/lecture_15_02.jpg" alt="img_15_02" width="400">
-</p>
+- $(I-P)$ is proj. onto $N(A^{T})$.
+
+```math
+\begin{align}
+\vec{e} {} &= \vec{b} - \vec{p} \\
+&= I\vec{b} - P\vec{b} \\
+&= (I-P)\vec{b}
+\end{align}
+```
 
 ```math
 \begin{align}
@@ -246,13 +250,13 @@ where $(I-P)$ is proj. onto $N(A^{T})$.
 
 **○ Least Squares**
 
-- Fitting by a line
+- Fitting by a line<br>
+For 3 points : $[(1,1), (2,2), (3,2)]$
+
 <!-- ![LeastSquares-15-01](images/lecture_15_02.jpg) -->
 <p align="center">
     <img src="images/lecture_15_02.jpg" alt="img_15_02" width="400">
 </p>
-
-For 3 points : $[(1,1), (2,2), (3,2)]$
 
 ```math
 \begin{align}
@@ -267,22 +271,24 @@ A\vec{x} = \vec{b} \quad\text{→}\quad \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 1 & 3 
 ```
 
 There is no solution for this system,<br>
-but we can find the best solution multiplying $A^{T}$.<br>
-$(A\vec{x} = \vec{b})$ → $(A^{T}A\vec{\hat{x}} = A^{T}\vec{b})$
-<br><br>
+but we can find the best solution by multiplying $A^{T}$.
 
 ```math
-\begin{align}
-\text{Minimize} \quad \lVert A\vec{\hat{x}} - \vec{b} \rVert^{2} {} &= \lVert \vec{e} \rVert^{2} \\
-&= e_{1}^{2} + e_{2}^{2} + e_{3}^{2}
-\end{align}
+(A\vec{x} = \vec{b}) \quad\text{→}\quad (A^{T}A\vec{\hat{x}} = A^{T}\vec{b})
 ```
+<br>
+
+- 2 ways to find $\vec{\hat{x}}$
+
+```math
+\vec{\hat{x}} = \begin{bmatrix} \hat{c} \\ \hat{d} \end{bmatrix}
+```
+<br>
+
+1) Solve $A^{T}A\vec{\hat{x}} = A^{T}\vec{b}$
 
 ```math
 \begin{align}
-
-\text{Find}\quad \vec{\hat{x}} = \begin{bmatrix} \hat{c} \\ \hat{d} \end{bmatrix} \\\\
-
 \begin{cases}
 A^{T}A = \begin{bmatrix} 1 & 1 & 1 \\ 1 & 2 & 3 \end{bmatrix}\begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 1 & 3 \end{bmatrix} = \begin{bmatrix} 3 & 6 \\ 6 &  14 \end{bmatrix} \\
 A^{T}\vec{b} = \begin{bmatrix} 1 & 1 & 1 \\ 1 & 2 & 3 \end{bmatrix}\begin{bmatrix} 1 \\ 2 \\ 2 \end{bmatrix} = \begin{bmatrix} 5 \\ 11 \end{bmatrix} \quad
@@ -302,9 +308,11 @@ A^{T}A\vec{\hat{x}} = A^{T}\vec{b} \quad \text{→} \quad
 \end{align}
 ```
 
+2) Minimize $\lVert A\vec{\hat{x}} - \vec{b} \rVert^{2} {} = \lVert \vec{e} \rVert^{2}$
+
 ```math
 \begin{align}
-\text{Minimize} \quad \lVert A\vec{\hat{x}} - \vec{b} \rVert^{2} {} &= \lVert \vec{e} \rVert^{2} \\
+\lVert A\vec{\hat{x}} - \vec{b} \rVert^{2} {} &= \lVert \vec{e} \rVert^{2} \\
 &= e_{1}^{2} + e_{2}^{2} + e_{3}^{2} \\
 &= (\hat{c}+\hat{d}-1)^{2} + (\hat{c}+2\hat{d}-2)^{2} + (\hat{c}+3\hat{d}-2)^{2} \\
 &= 3\hat{c}^{2} + 14\hat{d}^{2}+9+12\hat{c}\hat{d}-10\hat{c}-22\hat{d} \\
@@ -314,7 +322,7 @@ A^{T}A\vec{\hat{x}} = A^{T}\vec{b} \quad \text{→} \quad
 
 ```math
 \begin{align}
-\begin{cases}
+\text{Minimize} \quad f(\hat{c},\hat{d}) \quad \begin{cases}
 \frac{\partial f}{\partial \hat{c}} = 6\hat{c} + 12\hat{d} - 10 = 0 \\
 \frac{\partial f}{\partial \hat{d}} = 12\hat{c} + 28\hat{d} - 22 = 0
 \end{cases} \quad \text{→} \quad
@@ -324,7 +332,13 @@ A^{T}A\vec{\hat{x}} = A^{T}\vec{b} \quad \text{→} \quad
 \end{cases}
 \end{align}
 ```
+<br>
 
+- Find $\vec{p}$ and $\vec{e}$.
+
+<p align="center">
+    <img src="images/lecture_15_03.jpg" alt="img_15_03" width="500">
+</p>
 
 ```math
 \begin{align}
@@ -337,6 +351,15 @@ A^{T}A\vec{\hat{x}} = A^{T}\vec{b} \quad \text{→} \quad
 ```math
 \vec{e} = \vec{b} - \vec{p} = \begin{bmatrix} 1 \\ 2 \\ 2 \end{bmatrix} - \begin{bmatrix} \frac{7}{6} \\ \frac{5}{3} \\ \frac{13}{6} \end{bmatrix} = \begin{bmatrix} -\frac{1}{6} \\ \frac{1}{3} \\ -\frac{1}{6} \end{bmatrix}
 ```
+<br>
+
+- $\vec{e}$ is<br>
+: orthogonal to $C(A)$. (column space of A)<br>
+: perpendicular to $\vec{p}$. $(\because \: \vec{p} \in C(A))$
+
+<p align="center">
+    <img src="images/lecture_15_04.jpg" alt="img_15_04" width="500">
+</p>
 
 ```math
 \begin{align}

@@ -193,6 +193,8 @@ R \quad \text{: Upper Triangular Matrix}
 
 # 📚 Lecture 18: Properties of determinants
 
+**○ For square matrix A,**
+
 1. $\det I = 1$
 <br>
 
@@ -270,4 +272,104 @@ d_{1} & 0 & 0 & \cdots & 0 \\
 <br>
 
 8. $\det A = 0$, when $A$ is <b>singular</b>.<br>
-$\det A \not= 0$, when $A$ is <b>invertible</b>.
+($\det A \not= 0$, when $A$ is <b>invertible</b>.)
+
+A is invertible, when elimination produces a full setup non-zero pivots.<br>
+(From lecture 2)
+
+```math
+\begin{align*}
+U {} &= (E_{1} E_{2} \cdots E_{k}) A \quad(E_{i} \:\text{: apply property 2 or 5}) \\\\
+&= (E_{1} E_{2} \cdots E_{k}) \begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{bmatrix} \\\\
+&= \begin{bmatrix}
+p_{1} & * & \cdots & * \\
+0 & p_{2} & \cdots & * \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & p_{n}
+\end{bmatrix} \quad(p_{j} \:\text{: pivot of each row})
+\end{align*}
+```
+
+If $A$ is <b>singular</b>,<br>
+then at least one of $p$ in $U$ becomes zero.<br>
+$\therefore \det U = p_{1} p_{2} \cdots p_{n} = 0$<br>
+→ $\det A = 0$
+
+If $A$ is <b>invertible</b>,<br>
+then none of $p$ in $U$ is zero.<br>
+$\therefore \det U = p_{1} p_{2} \cdots p_{n} \not= 0$<br>
+→ $\det A \not= 0$
+
+Example 1)
+```math
+\begin{align}
+\begin{vmatrix} a & b \\ c & d \end{vmatrix} {} &= \begin{vmatrix} a & b \\ 0 & d-\frac{b}{a}c \end{vmatrix} \quad\text{(property 5)} \\
+&= a(d-\frac{b}{a}c) \quad\text{(property 7)} \\
+&= ad-bc
+\end{align}
+```
+
+Example 2) singular case
+```math
+\begin{align}
+\begin{vmatrix} a & b \\ a & b \end{vmatrix} {} &= \begin{vmatrix} a & b \\ 0 & 0 \end{vmatrix} \quad\text{(property 5)} \\
+&= a*0 \quad\text{(property 7)} \\
+&= 0
+\end{align}
+```
+<br>
+
+9. $\det AB = (\det A)(\det B)$
+- $\det A^{-1}$
+```math
+\begin{align}
+A^{-1}A = I \\
+\det A^{-1}A = (\det A^{-1})(\det A) = \det I = 1 \\
+\therefore \det A^{-1} = \frac{1}{\det A}
+\end{align}
+```
+
+- $\det A^{2} = (\det A)(\det A) = (\det A)^{2}$
+
+- $\det 2A = (\det 2I)(\det A) = 2^{n}(\det A)\quad$ (property 3-ⓐ)
+<br>
+
+10. $\det A^{T} = \det A$<br>
+(Based on this property, all other properties can work with columns!)
+
+- Proof)
+```math
+\begin{align}
+\quad\text{(property 9)}\quad \begin{cases}
+\det A = \det LU = (\det L)(\det U) \\
+\det A^{T} = \det (LU)^{T} = \det U^{T}L^{T} = (\det U^{T})(\det L^{T})
+\end{cases}
+\end{align}
+```
+<br>
+
+We can make all diagonal elements of $L$ to be $1$ through elimination.
+```math
+\det L = \det L^{T}
+= \begin{vmatrix}
+1 & 0 & 0 & \cdots & 0 \\
+* & 1 & 0 & \cdots & 0 \\
+* & * & 1 & \cdots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+* & * & * & \cdots & 1
+\end{vmatrix} = 1
+```
+<br>
+
+```math
+\begin{align}
+{} & \det A^{T} = \det A \\
+\text{→}\quad & (\det U^{T})(\det L^{T}) = (\det L)(\det U) \\
+\text{→}\quad & (\det U^{T}) = (\det U) \quad(\therefore \: \text{proved!})
+\end{align}
+```

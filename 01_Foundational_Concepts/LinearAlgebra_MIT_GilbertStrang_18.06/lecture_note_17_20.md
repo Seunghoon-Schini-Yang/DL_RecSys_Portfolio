@@ -275,7 +275,7 @@ d_{1} & 0 & 0 & \cdots & 0 \\
 ($\det A \not= 0$, when $A$ is <b>invertible</b>.)
 
 A is invertible, when elimination produces a full setup non-zero pivots.<br>
-(From lecture 2)
+(from Lecture 2)
 
 ```math
 \begin{align*}
@@ -340,7 +340,7 @@ A^{-1}A = I \\
 <br>
 
 10. $\det A^{T} = \det A$<br>
-(Based on this property, all other properties can work with columns!)
+(Based on this property, <b>all other properties can work with columns!</b>)
 
 - Proof)
 ```math
@@ -353,7 +353,8 @@ A^{-1}A = I \\
 ```
 <br>
 
-We can make all diagonal elements of $L$ to be $1$ through elimination.
+We can make all diagonal elements of $L$ to be $1$ through elimination.<br>
+(from Lecture 4)
 ```math
 \det L = \det L^{T}
 = \begin{vmatrix}
@@ -372,4 +373,47 @@ We can make all diagonal elements of $L$ to be $1$ through elimination.
 \text{→}\quad & (\det U^{T})(\det L^{T}) = (\det L)(\det U) \\
 \text{→}\quad & (\det U^{T}) = (\det U) \quad(\therefore \: \text{proved!})
 \end{align}
+```
+
+<br><br><br>
+
+# 📚 Lecture 19: Determinant formulas and cofactors
+
+- In case of $(2 \times 2)$,
+```math
+\begin{align}
+\begin{vmatrix} a & b \\ c & d \end{vmatrix} {} &= \begin{vmatrix} a & 0 \\ c & d \end{vmatrix} + \begin{vmatrix} 0 & b \\ c & d \end{vmatrix} \quad\text{(property 3-ⓑ)} \\
+&= (\cancelto{0}{\begin{vmatrix} a & 0 \\ c & 0 \end{vmatrix}} + \begin{vmatrix} a & 0 \\ 0 & d \end{vmatrix}) + (\begin{vmatrix} 0 & b \\ c & 0 \end{vmatrix} + \cancelto{0}{\begin{vmatrix} 0 & b \\ 0 & d \end{vmatrix}} \quad\text{(property 3-ⓑ)}) \\
+&= \begin{vmatrix} a & 0 \\ 0 & d \end{vmatrix} - \begin{vmatrix} c & 0 \\ 0 & b \end{vmatrix} \quad\text{(property 2)} \\
+&= ad - bc \quad\text{(property 7)}
+\end{align}
+```
+<br>
+
+- In case of $(3 \times 3)$,
+```math
+\begin{align}
+\begin{vmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{vmatrix} {}
+&= \begin{vmatrix} a_{11} & 0 & 0 \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{vmatrix}
++ \begin{vmatrix} 0 & a_{12} & 0 \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{vmatrix}
++ \begin{vmatrix} 0 & 0 & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{vmatrix} \quad\text{(property 3-ⓑ)} \\
+&= \begin{vmatrix} a_{11} & 0 & 0 \\ 0 & a_{22} & a_{23} \\ 0 & a_{32} & a_{33} \end{vmatrix}
++ \begin{vmatrix} 0 & a_{12} & 0 \\ a_{21} & 0 & a_{23} \\ a_{31} & 0 & a_{33} \end{vmatrix}
++ \begin{vmatrix} 0 & 0 & a_{13} \\ a_{21} & a_{22} & 0 \\ a_{31} & a_{32} & 0 \end{vmatrix} \quad\text{(property 4)} \\
+&= a_{11} \begin{vmatrix} a_{22} & a_{23} \\ a_{32} & a_{33} \end{vmatrix}
+- a_{12} \begin{vmatrix} a_{21} & a_{23} \\ a_{31} & a_{33} \end{vmatrix}
++ a_{13} \begin{vmatrix} a_{21} & a_{22} \\ a_{31} & a_{32} \end{vmatrix} \quad\text{(property 2, 7, 10)} \\
+\end{align}
+```
+<br>
+
+- In case of $(n \times n)$ matrix $A$,<br>
+$C_{ij} =$ (Cofactor of $a_{ij}$),<br>
+where $C_{ij}$ is a $(n-1) \times (n-1)$ matrix with $row_{i}$ and $col_{j}$ erased.
+
+```math
+\det A = \begin{cases}
+\sum_{i=1}^{n} (-1)^{(i+j)} a_{ij} (\det C_{ij}) \quad \langle \: j \in {1, 2, \cdots, n} \: \rangle \\\\
+\sum_{j=1}^{n} (-1)^{(i+j)} a_{ij} (\det C_{ij}) \quad \langle \: i \in {1, 2, \cdots, n} \: \rangle
+\end{cases}
 ```

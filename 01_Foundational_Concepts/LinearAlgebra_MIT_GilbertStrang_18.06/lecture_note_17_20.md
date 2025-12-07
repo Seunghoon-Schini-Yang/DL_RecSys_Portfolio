@@ -588,6 +588,10 @@ C_{1n} & C_{2n} & \cdots & C_{nn}
 - $\det A$ = (Volume by rows or columns of $A$)<br>
 (Same with area in 2-D case.)
 
+<p align="center">
+    <img src="images/lecture_17_01.jpg" alt="img_17_01" width="600">
+</p>
+
 ```math
 \text{For}\quad A = \begin{bmatrix} \vec{a_{1}} & \cdots & \vec{a_{n}} \end{bmatrix}, \quad \det A
 ```

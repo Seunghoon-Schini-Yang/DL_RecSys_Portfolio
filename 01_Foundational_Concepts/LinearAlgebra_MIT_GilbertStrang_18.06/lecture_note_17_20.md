@@ -584,20 +584,29 @@ C_{1n} & C_{2n} & \cdots & C_{nn}
 <br><br>
 
 **○ Geometric meaning of determinant**
-
 - $\det A$ = (Volume by rows or columns of $A$)<br>
-(Same with area in 2-D case.)
+(Same with area in 2-D case.)<br>
+
+Example)
+```math
+\begin{align}
+\text{For}\quad A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \: , \\
+\text{Area} = \det A = ad - bc
+\end{align}
+```
 
 <p align="center">
-    <img src="images/lecture_17_01.jpg" alt="img_17_01" width="600">
-</p>
+    <img src="images/lecture_20_01.jpg" alt="img_17_01" width="500">
+</p><br>
+
+Proof)
+
+From <b>Gram-Schmidt process</b>, (lecture 17)
 
 ```math
 \text{For}\quad A = \begin{bmatrix} \vec{a_{1}} & \cdots & \vec{a_{n}} \end{bmatrix}, \quad \det A
 ```
 <br>
-
-From <b>Gram-Schmidt process</b>,
 
 ```math
 \begin{align}

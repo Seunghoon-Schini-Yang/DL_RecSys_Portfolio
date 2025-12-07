@@ -408,12 +408,220 @@ We can make all diagonal elements of $L$ to be $1$ through elimination.<br>
 <br>
 
 - In case of $(n \times n)$ matrix $A$,<br>
-$C_{ij} =$ (Cofactor of $a_{ij}$),<br>
-where $C_{ij}$ is a $(n-1) \times (n-1)$ matrix with $row_{i}$ and $col_{j}$ erased.
+(Minor of $a_{ij}$) : $M_{ij}$ is determinant of $(n-1) \times (n-1)$ matrix with $row_{i}$ and $col_{j}$ erased.<br>
+(Cofactor of $a_{ij}$) : $C_{ij} = (-1)^{(i+j)}M_{ij}$<br>
 
 ```math
 \det A = \begin{cases}
-\sum_{i=1}^{n} (-1)^{(i+j)} a_{ij} (\det C_{ij}) \quad \langle \: j \in {1, 2, \cdots, n} \: \rangle \\\\
-\sum_{j=1}^{n} (-1)^{(i+j)} a_{ij} (\det C_{ij}) \quad \langle \: i \in {1, 2, \cdots, n} \: \rangle
+\sum_{i=1}^{n} (-1)^{(i+j)} a_{ij} M_{ij} = \sum_{i=1}^{n} a_{ij} C_{ij} \quad \langle \: j \in {1, 2, \cdots, n} \: \rangle \\\\
+\sum_{j=1}^{n} (-1)^{(i+j)} a_{ij} M_{ij} = \sum_{j=1}^{n} a_{ij} C_{ij} \quad \langle \: i \in {1, 2, \cdots, n} \: \rangle
 \end{cases}
+```
+<br>
+
+- $C$ : Cofactor Matrix
+
+```math
+C = \begin{bmatrix}
+C_{11} & C_{12} & C_{13} & \cdots & C_{1n} \\
+C_{21} & C_{22} & C_{23} & \cdots & C_{2n} \\
+C_{31} & C_{32} & C_{33} & \cdots & C_{3n} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+C_{n1} & C_{n2} & C_{n3} & \cdots & C_{nn}
+\end{bmatrix}
+```
+
+<br><br><br>
+
+# 📚 Lecture 20: Cramer's rule, inverse matrix, and volume
+
+**○ Inverse Matrix $(A^{-1} = \frac{1}{\det A}C^{T})$**
+
+- In case of $(2 \times 2)$ matrix,
+
+```math
+\begin{align}
+\begin{bmatrix} a & b \\ c & d \end{bmatrix}^{-1} {}
+&= (\frac{1}{ad-bc}) \begin{vmatrix} d & -b \\ -c & a \end{vmatrix} \\
+&= (\frac{1}{\det A}) \begin{bmatrix} C_{11} & C_{12} \\ C_{21} & C_{22} \end{bmatrix}^{T} \\
+& = (\frac{1}{\det A}) C^{T}
+\end{align}
+```
+<br>
+
+- In case of $(n \times n)$ matrix,
+
+```math
+\sum_{j=1}^{n} a_{xj} C_{yj} = \begin{cases}
+\det A \quad \langle \: x = y \: \rangle \\
+0 \quad \langle \: x \not= y \: \rangle
+\end{cases}
+```
+<br>
+
+```math
+\begin{align}
+AC^{T} {} &= \begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{bmatrix} \begin{bmatrix}
+C_{11} & C_{21} & \cdots & C_{n1} \\
+C_{12} & C_{22} & \cdots & C_{n2} \\
+\vdots & \vdots & \ddots & \vdots \\
+C_{1n} & C_{2n} & \cdots & C_{nn}
+\end{bmatrix} \\\\
+&= \begin{bmatrix}
+\sum_{j=1}^{n} a_{1j}C_{1j} & \sum_{j=1}^{n} a_{1j}C_{2j} & \cdots & \sum_{j=1}^{n} a_{1j}C_{nj} \\
+\sum_{j=1}^{n} a_{2j}C_{1j} & \sum_{j=1}^{n} a_{2j}C_{2j} & \cdots & \sum_{j=1}^{n} a_{2j}C_{nj} \\
+\vdots & \vdots & \ddots & \vdots \\
+\sum_{j=1}^{n} a_{nj}C_{1j} & \sum_{j=1}^{n} a_{nj}C_{2j} & \cdots & \sum_{j=1}^{n} a_{nj}C_{nj}
+\end{bmatrix} \\\\
+&= \begin{bmatrix}
+\det A & 0 & \cdots & 0 \\
+0 & \det A & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & \det A
+\end{bmatrix} \\\\
+&= (\det A)I
+\end{align}
+```
+<br>
+
+```math
+\therefore\quad A^{-1} = \frac{1}{\det A}C^{T}
+```
+<br>
+
+Why $\sum_{j=1}^{n} a_{xj} C_{yj} = 0$ when $x \not= y$ ?
+
+```math
+\begin{align}
+\text{Where}\quad A_{s} = \begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{x1} & a_{x2} & \cdots & a_{xn} \\
+\vdots & \vdots & \ddots & \vdots \\
+a\prime_{y1} & a\prime_{y2} & \cdots & a\prime_{yn} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{bmatrix} \quad \langle \text{with} \: row_{x} = row_{y} \rangle ,
+\end{align}
+```
+<br>
+
+```math
+\begin{align}
+\text{then}\quad \det A_{s} {} &= a\prime_{y1}C_{y1} + a\prime_{y2}C_{y2} + \cdots + a\prime_{yn}C_{yn} \\
+&\quad [\vec{C_{y}} = \langle C_{y1}, C_{y2}, \cdots, C_{yn} \rangle \: \text{from} \: A \: \text{and} \: A_{s} \: \text{are equal.}]\\\\
+&= a_{x1}C_{y1} + a_{x2}C_{y2} + \cdots + a_{xn}C_{yn} \quad (\because \: row_{x} = row_{y}) \\\\
+&= \sum_{j=1}^{n} a_{xj} C_{yj} \\\\
+&= 0 \quad (\because \: A_{s} \: \text{is dependent.})
+\end{align}
+```
+<br>
+
+Exapmle)
+```math
+\begin{align}
+\text{Where}\quad A_{s} = \begin{bmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{11} & a_{12} & a_{13} \end{bmatrix} \quad \langle row_{1} = row_{3} \rangle , \\
+\end{align}
+```
+
+```math
+\begin{align}
+\text{then}\quad \det A_{s} {} &= a_{31}C_{31} + a_{32}C_{32} + a_{33}C_{33} \\\\
+&= a_{11}C_{31} + a_{12}C_{32} + a_{13}C_{33} \quad (\because \: row_{1} = row_{3}) \\\\
+&= \sum_{j=1}^{3} a_{1j} C_{3j} \\\\
+&= 0 \quad (\because \: A_{s} \: \text{is dependent.})
+\end{align}
+```
+<br>
+
+**○ Cramer's Rule**
+
+```math
+\text{For}\quad A\vec{x} = \vec{b} \: \text{,}
+```
+<br>
+
+```math
+\begin{align}
+\vec{x} {} &= A^{-1}\vec{b} \\\\
+&= \frac{1}{\det A}C^{T}\vec{b} \\\\
+&= \frac{1}{\det A} \begin{bmatrix}
+C_{11} & C_{21} & \cdots & C_{n1} \\
+C_{12} & C_{22} & \cdots & C_{n2} \\
+\vdots & \vdots & \ddots & \vdots \\
+C_{1n} & C_{2n} & \cdots & C_{nn}
+\end{bmatrix}
+\begin{bmatrix} b_{1} \\ b_{2} \\ \vdots \\ b_{n} \end{bmatrix}
+= \begin{bmatrix} x_{1} \\ x_{2} \\ \vdots \\ x_{n} \end{bmatrix}
+\end{align}
+```
+<br>
+
+```math
+\begin{align}
+\therefore \: \vec{x} = \begin{bmatrix} x_{1} \\ x_{2} \\ \vdots \\ x_{n} \end{bmatrix}
+= \begin{bmatrix} \sum_{i=1}^{n} b_{i} C_{i1} \\ \sum_{i=1}^{n} b_{i} C_{i2} \\ \vdots \\ \sum_{i=1}^{n} b_{i} C_{in} \end{bmatrix}
+= \frac{1}{\det A} \begin{bmatrix} \det B_{1} \\ \det B_{2} \\ \vdots \\ \det B_{n} \end{bmatrix}
+\end{align}
+```
+<br>
+
+- $B_{k}$ : $A$ with $col_{k}$ replaced by $b$
+
+```math
+\begin{align} {}
+& B_{1} = \begin{bmatrix} \vec{b} & \vec{a_{2}} & \cdots & \vec{a_{n}} \end{bmatrix} \\
+& B_{k} = \begin{bmatrix} \vec{a_{1}} & \cdots & \vec{a}_{k-1} & \vec{b} & \vec{a}_{k+1} & \cdots & \vec{a_{n}} \end{bmatrix} \\
+& B_{n} = \begin{bmatrix} \vec{a_{1}} & \cdots & \vec{a}_{n-1} & \vec{b} \end{bmatrix}
+\end{align}
+```
+<br><br>
+
+**○ Geometric meaning of determinant**
+
+- $\det A$ = (Volume by rows or columns of $A$)<br>
+(Same with area in 2-D case.)
+
+```math
+\text{For}\quad A = \begin{bmatrix} \vec{a_{1}} & \cdots & \vec{a_{n}} \end{bmatrix}, \quad \det A
+```
+<br>
+
+From <b>Gram-Schmidt process</b>,
+
+```math
+\begin{align}
+\begin{rcases}
+\vec{u_{1}} = \vec{a_{1}}, {} & \quad \vec{e_{1}} = \frac{\vec{u_{1}}}{\lVert \vec{u_{1}} \rVert} \\
+\vec{u_{2}} = \vec{a_{2}} - \text{proj}_{\vec{u_{1}}}\vec{a_{2}} , & \quad \vec{e_{2}} = \frac{\vec{u_{2}}}{\lVert \vec{u_{2}} \rVert} \\
+\vec{u_{3}} = \vec{a_{3}} - \text{proj}_{\vec{u_{1}}}\vec{a_{3}} - \text{proj}_{\vec{u_2}}\vec{a_{3}} , & \quad \vec{e_{3}} = \frac{\vec{u_{3}}}{\lVert \vec{u_{3}} \rVert} \\\\
+\quad\vdots & \quad\vdots \\\\
+\vec{u_{k}} = \vec{a_{k}} - \sum_{j=1}^{k-1} \text{proj}_{\vec{u_{j}}}\vec{a_{j}} , & \quad \vec{e_{k}} = \frac{\vec{u_{k}}}{\lVert \vec{u_{k}} \rVert}
+\end{rcases} \quad \begin{matrix} \text{property 5} \\ \text{property 3-ⓐ} \end{matrix} 
+\end{align}
+```
+<br>
+
+```math
+\begin{align}
+\therefore\quad \det A {} &= \det (\begin{bmatrix} \vec{a_{1}} & \cdots & \vec{a_{n}} \end{bmatrix}) \\\\
+&= \det (\begin{bmatrix} \vec{u_{1}} & \cdots & \vec{u_{n}} \end{bmatrix}) \quad\text{(property 5)} \\\\
+&= (\lVert \vec{u_{1}} \rVert \cdots \lVert \vec{u_{n}} \rVert) \det (\begin{bmatrix} \vec{e_{1}} & \cdots & \vec{e_{n}} \end{bmatrix}) \quad\text{(property 3-ⓐ)} \\\\
+&= (\lVert \vec{u_{1}} \rVert \cdots \lVert \vec{u_{n}} \rVert) \det Q \\\\
+&= \lVert \vec{u_{1}} \rVert \cdots \lVert \vec{u_{n}} \rVert \quad (\because \det Q = 1)
+\end{align}
+```
+<br>
+
+```math
+\begin{align} {} \therefore
+& \text{(2-D case)}\quad \det A = \lVert \vec{u_{1}} \rVert \lVert \vec{u_{2}} \rVert = (\text{area by rows or cols of } A) \\
+& \text{(3-D case)}\quad \det A = \lVert \vec{u_{1}} \rVert \lVert \vec{u_{2}} \rVert \lVert \vec{u_{3}} \rVert = (\text{volume by rows or cols of } A)
+\end{align}
 ```

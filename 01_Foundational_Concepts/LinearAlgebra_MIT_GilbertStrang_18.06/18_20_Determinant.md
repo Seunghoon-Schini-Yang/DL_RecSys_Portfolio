@@ -1,6 +1,6 @@
 # 📚 Lecture 18: Properties of determinants
 
-**○ For square matrix A,**
+**○ For square matrix $A$,**
 
 1. $\det I = 1$
 <br>

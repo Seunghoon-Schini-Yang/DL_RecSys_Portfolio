@@ -101,15 +101,15 @@ det = 1 = \lambda_{1}\lambda_{2}
 \end{align}
 ```
 
-- Triangular Matrix
+- Triangular Matrix<br>
+In this case, there is no 2nd linearly independent eigenvector $\vec{v}_{2}$.<br>
+(→ This means the matrix $S$ does not exist.)
 
 ```math
 \begin{align}
 A = \begin{bmatrix} 3 & 1 \\ 0 & 3 \end{bmatrix} \\
-
 \det (A - \lambda I) = \begin{vmatrix} 3-\lambda & 1 \\ 0 & 3-\lambda \end{vmatrix}  = (3-\lambda)^{2} \\
 \lambda_{1} = \lambda_{2} = 3, \vec{v}_{1} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \\
-\text{No 2nd independent} \: \vec{v}_{2}
 \end{align}
 ```
 
@@ -119,7 +119,7 @@ A = \begin{bmatrix} 3 & 1 \\ 0 & 3 \end{bmatrix} \\
 
 **○ Diagonalization**
 
-Suppose $n$ independent eigenvectors $\vec{v}$ of $A$.<br>
+Suppose $n$ linearly independent eigenvectors $\vec{v}$ of $A$.<br>
 ```math
 S = \begin{bmatrix} \vec{v}_{1} & \vec{v}_{2} & \cdots & \vec{v}_{n} \end{bmatrix}
 ```
@@ -233,7 +233,7 @@ if all $|\lambda_{i}| < 1$.<br>
 ```
 
 ```math
-\text{With}\quad \vec{c} = \begin{bmatrix} c_{1} \\ c_{2} \\ \vdots \\ c_{n} \end{bmatrix} \: ,
+\text{With}\quad \vec{c} = \begin{bmatrix} c_{1} \\ c_{2} \\ \vdots \\ c_{n} \end{bmatrix} = S^{-1}\vec{u}_{0} \: ,
 ```
 ```math
 \begin{align}
@@ -268,6 +268,9 @@ F_{k+2} = F_{k+1} + F_{k} \\ F_{k+1} = F_{k+1}
 <br>
 
 ```math
+\text{with} \: \vec{c} = \begin{bmatrix} c_{1} \\ c_{2} \end{bmatrix} = S^{-1}\vec{u}_{0} \\
+```
+```math
 \begin{cases}
 \quad\vec{u}_{0} {} &= \begin{bmatrix} F_{1} \\ F_{0} \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = S\vec{c} \\
 \quad\vec{u}_{k} &= \begin{bmatrix} F_{k+1} \\ F_{k} \end{bmatrix} = A^{k}\vec{u}_{0} = S\Lambda^{k}\vec{c} \\
@@ -281,7 +284,7 @@ F_{k+2} = F_{k+1} + F_{k} \\ F_{k+1} = F_{k+1}
 ```
 ```math
 \begin{align}
-\therefore \: \lim_{k\to\infty}\vec{u}_{k} {} &= \lim_{k\to\infty} (c_{1}(1.618)^{k} \vec{v}_{1} + c_{2}(-0.618)^{k} \vec{v}_{2}) \\
-& \approx (1.618)^{k}c_{1}\vec{v}_{1}
+\therefore \: \lim_{k\to\infty}\vec{u}_{k} {} &= \lim_{k\to\infty} [(c_{1}(1.618)^{k} \vec{v}_{1} + c_{2}(-0.618)^{k} \vec{v}_{2})] \\
+& \approx \lim_{k\to\infty} (1.618)^{k}c_{1}\vec{v}_{1} \quad\text{(Blows up to infinity)}
 \end{align}
 ```

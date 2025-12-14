@@ -36,7 +36,7 @@ A = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \quad\text{(exchange row1 and r
 ```
 <br>
 
-- (Sum of the eigenvalues) = (Sum of the diagonal entries)
+- $\sum\lambda$ (: Sum of the eigenvalues) = $tr(A)$ (: Sum of the diagonal entries)
 ```math
 \begin{align}
 \det (\lambda I - A) = \begin{cases}
@@ -44,6 +44,25 @@ A = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \quad\text{(exchange row1 and r
 (\lambda-\lambda_{1})(\lambda-\lambda_{2})\cdots(\lambda-\lambda_{n}) = \lambda^{n} - (\lambda_{1}+\lambda_{2}+\cdots+\lambda_{n})\lambda^{n-1} + \cdots = 0 \end{cases} \\
 \therefore \: \text{tr}(A) = \sum_{i=1}^{n} a_{ii} = a_{11} + a_{22} + \cdots + a_{nn} \\
  = \lambda_{1} + \lambda_{2} + \cdots + \lambda_{n} = \sum_{i=1}^{n} \lambda_{i}
+\end{align}
+```
+<br>
+
+- $\prod\lambda$ (: Product of the eigenvalues) = $\det A$
+```math
+\begin{align}
+\text{From}\quad \det (A-\lambda I) {} &= (-1)^{n}(\lambda-\lambda_{1})(\lambda-\lambda_{2})\cdots(\lambda-\lambda_{n}) \\
+&= (\lambda_{1}-\lambda)(\lambda_{2}-\lambda)\cdots(\lambda_{n}-\lambda) \\
+\end{align}
+```
+```math
+\text{when}\: \lambda = 0 \:,\quad\quad\quad\quad\quad\quad
+\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad
+```
+```math
+\begin{align}
+\text{then}\quad \det (A-0I) = \det A {} &= (\lambda_{1}-0)(\lambda_{2}-0)\cdots(\lambda_{n}-0) \\
+&= \lambda_{1}\lambda_{2}\cdots\lambda_{n} = \prod_{i=1}^{n} \lambda_{i}
 \end{align}
 ```
 <br>
@@ -221,8 +240,8 @@ if all $|\lambda_{i}| < 1$.<br>
 
 ```math
 \begin{align}
-\text{Equation}\quad \vec{u}_{k+1} = A\vec{u}_{k}
-\quad\text{Start with given vector}\quad \vec{u}_{0}. \\
+\text{For equation}\quad \vec{u}_{k+1} = A\vec{u}_{k}
+\quad\text{start with given vector}\quad \vec{u}_{0}. \\
 \begin{cases}
 \vec{u}_{1} {} &= A\vec{u}_{0} \\
 \vec{u}_{2} &= A^{2}\vec{u}_{0} \\
@@ -270,6 +289,7 @@ F_{k+2} = F_{k+1} + F_{k} \\ F_{k+1} = F_{k+1}
 ```math
 \text{with} \: \vec{c} = \begin{bmatrix} c_{1} \\ c_{2} \end{bmatrix} = S^{-1}\vec{u}_{0} \\
 ```
+
 ```math
 \begin{cases}
 \quad\vec{u}_{0} {} &= \begin{bmatrix} F_{1} \\ F_{0} \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = S\vec{c} \\

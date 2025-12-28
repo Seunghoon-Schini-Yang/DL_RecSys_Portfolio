@@ -403,7 +403,7 @@ Example)
 ```
 
 <p align="center">
-    <img src="images/lecture_20_01.jpg" alt="img_17_01" width="500">
+    <img src="images/lecture_20_01.jpg" alt="img_20_01" width="500">
 </p><br>
 
 Proof)

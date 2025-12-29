@@ -56,8 +56,8 @@ A = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \quad\text{(exchange row1 and r
 \end{align}
 ```
 ```math
-\text{when}\: \lambda = 0 \:,\quad\quad\quad\quad\quad\quad
-\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad
+\text{when}\: \lambda = 0 \:,\quad\quad\quad\quad\quad\quad\quad
+\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad
 ```
 ```math
 \begin{align}
@@ -267,10 +267,13 @@ if all $|\lambda_{i}| < 1$.<br>
 - Example : <b>Fibonacci sequence</b>  $(0, 1, 1, 2, 3, 5, 8, ...)$
 
 ```math
+\begin{align}
 \begin{cases}
 F_{k+2} = F_{k+1} + F_{k} \\ F_{k+1} = F_{k+1}
-\end{cases} \quad\rightarrow\quad
-\begin{bmatrix} F_{k+2} \\ F_{k+1} \end{bmatrix} = \begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} F_{k+1} \\ F_{k} \end{bmatrix} \quad\rightarrow\quad u_{k+1} = Au_{k} \quad\text{(First-order system)}
+\end{cases} {} & \quad\rightarrow\quad
+\begin{bmatrix} F_{k+2} \\ F_{k+1} \end{bmatrix} = \begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} F_{k+1} \\ F_{k} \end{bmatrix} \\
+& \quad\rightarrow\quad u_{k+1} = Au_{k} \quad\text{(First-order system)}
+\end{align}
 ```
 <br>
 
@@ -287,7 +290,7 @@ F_{k+2} = F_{k+1} + F_{k} \\ F_{k+1} = F_{k+1}
 <br>
 
 ```math
-\text{with} \: \vec{c} = \begin{bmatrix} c_{1} \\ c_{2} \end{bmatrix} = S^{-1}\vec{u}_{0} \\
+\text{with} \: \vec{c} = \begin{bmatrix} c_{1} \\ c_{2} \end{bmatrix} = S^{-1}\vec{u}_{0}
 ```
 
 ```math
@@ -302,6 +305,7 @@ F_{k+2} = F_{k+1} + F_{k} \\ F_{k+1} = F_{k+1}
 \text{As}\quad k \rightarrow \infty, \quad\text{then}\quad
 \Lambda^{k} = \begin{bmatrix} 1.618^{k} & 0 \\ 0 & (-0.618)^{k} \end{bmatrix} \rightarrow \begin{bmatrix} \infty & 0 \\ 0 & 0 \end{bmatrix} 
 ```
+
 ```math
 \begin{align}
 \therefore \: \lim_{k\to\infty}\vec{u}_{k} {} &= \lim_{k\to\infty} [(c_{1}(1.618)^{k} \vec{v}_{1} + c_{2}(-0.618)^{k} \vec{v}_{2})] \\

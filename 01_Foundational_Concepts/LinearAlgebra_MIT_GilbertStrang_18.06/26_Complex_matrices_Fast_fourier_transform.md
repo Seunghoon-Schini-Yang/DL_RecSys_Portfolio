@@ -91,7 +91,7 @@ $w_{4} = e^{\frac{i2\pi}{4}} = \cos{\frac{2\pi}{4}} + i\sin{\frac{2\pi}{4}} = i$
 <br>
 
 **○ DFT Factorization**
-<a href="https://en.wikipedia.org/wiki/DFT_matrix">(See proof)</a>
+<a href="https://github.com/Seunghoon-Schini-Yang/DL_RecSys_Portfolio/blob/main/01_Foundational_Concepts/LinearAlgebra_MIT_GilbertStrang_18.06/Proofs/26_DFT_factorization.md">(See proof)</a>
 
 
 Let $N = 2M$, then

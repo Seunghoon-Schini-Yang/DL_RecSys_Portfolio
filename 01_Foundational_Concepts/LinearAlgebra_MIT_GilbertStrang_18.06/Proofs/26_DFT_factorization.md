@@ -1,6 +1,15 @@
 ### ¶ DFT Factorization ¶
 
-General proof for $N = 2M$,<br>
+```math
+\begin{align}
+\vec{X} {} &= F_{N}\vec{x} \\\\
+&= \begin{bmatrix} I_{M} & D_{M} \\ I_{M} & -D_{M} \end{bmatrix}
+\begin{bmatrix} F_{M} & 0 \\ 0 & F_{M} \end{bmatrix}P_{N}\vec{x}
+\end{align}
+```
+<br>
+
+- General proof for $N = 2M$<br>
 Use the DFT definition with $w_{N} = e^{-\frac{i2\pi}{N}}$ (clockwise)
 
 ```math
@@ -10,8 +19,8 @@ X_{k} = \sum_{n=0}^{N-1}x_{n}(w_{N})^{kn}, \quad (k = 0, 1, \cdots , N-1)
 ```
 
 Split the sum into even and odd indices :<br>
-even: $n = 2m$ where $m = 0, 1, \cdots , M-1$<br>
-odd: $n = 2m+1$ where $m = 0, 1, \cdots , M-1$<br><br>
+(even) $n = 2m$ where $m = 0, 1, \cdots , M-1$<br>
+(odd) $n = 2m+1$ where $m = 0, 1, \cdots , M-1$<br><br>
 
 Then
 ```math
@@ -110,13 +119,71 @@ Substitute (4) and (5) into (3) :
 ```
 <br>
 
-Since $\vec{X} = F_{N}\vec{x}$, for all the matrix identity is proven:
+Since $\vec{X} = F_{N}\vec{x}$, for all the matrix identity is proven :
 ```math
 \therefore\quad F_{N} = \begin{bmatrix} I_{M} & D_{M} \\ I_{M} & -D_{M} \end{bmatrix} \begin{bmatrix} F_{M} & 0 \\ 0 & F_{M} \end{bmatrix} P_{N} ,\quad(N = 2M)
 ```
-<br>
+<br><br><br>
+
+
+**○ Time Complexity : From $O(N^{2})$ to $O(N\log_{2}{N})$**
 
 That’s the full radix-2 decimation-in-time FFT factorization.
 
-“Full radix-2 decimation-in-time (DIT) FFT factorization” means you apply that $N = 2M$ matrix identity repeatedly, halving the DFT size each time, until you reach $𝐹_{2}$ (or $F_{1}$). That turns the 
-$𝑁$ point DFT into $\log_{2}{N}$ stages of butterflies + twiddles, with an initial bit-reversal permutation.
+“Full radix-2 decimation-in-time (DIT) FFT factorization” means<br>
+you apply that $N = 2M$ matrix identity repeatedly,<br>
+halving the DFT size each time, until you reach $𝐹_{2}$ (or $F_{1}$).<br>
+That turns the $𝑁$ point DFT into $\log_{2}{N}$ stages of butterflies + twiddles,<br>
+with an initial bit-reversal permutation.
+<br>
+
+<p align="center">
+    <img src="images/lecture_26_01.jpg" alt="img_23_01" width="400">
+</p><br>
+
+1) Why the DFT is $O(N^{2})$
+The DFT is
+```math
+X_{k} = \sum_{n=0}^{N-1}x_{n}w_{N}^{kn}
+```
+
+There are $N$ outputs $(k = 0, 1, \cdots, N-1)$.<br>
+Each ouput is a sum of $N$ terms.<br>
+So total multiplications and additions scale like :
+```math
+N \times N = N^{2}
+```
+<br>
+
+2) The key FFT idea : split into two smaller DFTs<br>
+For $N = 2M$, we proved :
+```math
+X_{k} = E_{k} + w_{N}^{k}O_{k} ,\quad X_{k+M} = E_{k} - w_{N}^{k}O_{k}
+```
+where $E_{k}$ and $O_{k}$ are DFTs of length $M$. (even and odd parts)
+
+So one $N$ point DFT becomes :<br>
+→ two $M$ point DFTs (recursive work)<br>
+→ plus $N$ extra “combine” operations (butterflies)
+
+That gives the recurrence :
+```math
+T(N) = 2T(N/2) + O(N)
+```
+<br>
+
+3) Solve the recurrence → $O(NlogN)$<br>
+Each stage costs O(N) because :<br>
+there are $N/2$ butterflies<br>
+each butterfly does constant work (1 multiply + 2 adds, roughly)
+
+You keep <b>halving</b> until size 1.<br>
+That takes $\log_{2}{N}$ stages.
+```math
+N \:\rightarrow\: \frac{N}{2} \:\rightarrow\: \frac{N}{4} \:\rightarrow\: \cdots \:\rightarrow\: 1
+```
+
+So total work costs :
+```math
+O(N) \times O(\log{N}) = O(N\log{N})
+```

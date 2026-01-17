@@ -138,7 +138,7 @@ with an initial bit-reversal permutation.
 <br>
 
 <p align="center">
-    <img src="images/lecture_26_01.jpg" alt="img_23_01" width="400">
+    <img src="../images/lecture_26_01.jpg" alt="img_26_01" width="500">
 </p><br>
 
 1) Why the DFT is $O(N^{2})$

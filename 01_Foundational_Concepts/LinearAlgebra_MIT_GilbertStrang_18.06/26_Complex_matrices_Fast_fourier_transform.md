@@ -39,10 +39,7 @@ $\vec{z}^{H}\vec{z}$ is always positive. (except $\vec{z} = \vec{0}$)
 
 
 ### ¶ Fast Fourier Transform ¶
-
 Fourier Matrix (The most important complex matrix)
-
-Time complexity : from $O(N^{2})$ to $O(N\log_{2}{N})$
 
 **○ DFT matrix** <a href="https://en.wikipedia.org/wiki/DFT_matrix">(Wikipedia)</a>
 
@@ -89,6 +86,15 @@ $w_{4} = e^{\frac{i2\pi}{4}} = \cos{\frac{2\pi}{4}} + i\sin{\frac{2\pi}{4}} = i$
 \end{align}
 ```
 <br>
+
+- $F_{N}$ is <b>orthogonal</b>, and <b>orthonormal</b> after scailing.<br>
+$\therefore\: (\frac{1}{\sqrt{N}}F_{N})$ is <b>unitary</b>.<br>
+This shows different columns correspond to <b>different frequencies</b>.
+```math
+F_{N}^{H}F_{N} = NI \quad\leftrightarrow\quad (\frac{1}{\sqrt{N}}F_{N}^{H})(\frac{1}{\sqrt{N}}F_{N}) = I
+```
+<br><br><br>
+
 
 **○ DFT Factorization**
 <a href="https://github.com/Seunghoon-Schini-Yang/DL_RecSys_Portfolio/blob/main/01_Foundational_Concepts/LinearAlgebra_MIT_GilbertStrang_18.06/Proofs/26_DFT_factorization.md">(See proof)</a>

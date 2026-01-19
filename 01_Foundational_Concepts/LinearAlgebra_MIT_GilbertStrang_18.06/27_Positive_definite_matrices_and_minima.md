@@ -98,7 +98,11 @@ In least squares,
 ```math
 A^{T}A\vec{x} = A^{T}\vec{b}
 ```
-- $A^{T}A$ is always positive semi-definite. (positive definite if columns of $A$ are independent.)
+- For $(m \times n)$ matrix $A$, $(A^{T}A)$ is always positive semi-definite.<br>
+Positive definite if columns of $A$ are independent. (rank = $n$)
+```math
+\vec{x}^{T}(A^{T}A)\vec{x} = (\vec{x}^{T}A^{T})(A\vec{x}) = (A\vec{x})^{T}(A\vec{x}) = \lVert A\vec{x} \rVert^{2} \ge 0
+```
 
 This explains :
 - Why least squares has a unique solution

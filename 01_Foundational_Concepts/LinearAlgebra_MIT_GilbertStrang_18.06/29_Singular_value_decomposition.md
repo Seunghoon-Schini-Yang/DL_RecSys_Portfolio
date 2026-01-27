@@ -58,13 +58,18 @@ $\therefore\: \Sigma^{T}\Sigma = \Lambda_{(A^{T}A)}$ and $\Sigma\Sigma^{T} = \La
 <p align="center">→ $A^{T}A$ and $AA^{T}$ have <b>same non-zero eigenvalues</b> $\lambda$.</p><br>
 
 **○ $U, V$ and 4 Fundamental Subspaces of $A$**<br>
+<b>SVD organizes all four fundamental subspaces simultaneously.</b><br>
+This is one of the deepest reasons SVD is so powerful.<br>
 
-| 4 Fundamental Subspaces | Basis |
-| :-----: | :----: |
-| Range($A^{T}$) : Row space of $A$ | First $r$ columns of $V$ |
-| $\ker(A)$ : Null space of $A$ | Last $(n-r)$ columns of $V$ |
-| Range($A$) : Column space of $A$ | First $r$ columns of $U$ |
-| $\ker(A^{T})$ : Null space of $A^{T}$ | Last $(m-r)$ columns of $U$ |
+- $V$ = [ONB(Row($A$)) | ONB(ker($A$))]<br>
+- $U$ = [ONB(Col($A$)) | ONB(ker($A^{T}$))]<br>
+
+| Symbols | 4 Fundamental Subspaces | Basis |
+| :-----: | :----: | :----: |
+| Row($A$) = Range($A^{T}$) | Row space of $A$ | First $r$ columns of $V$ |
+| $\ker(A)$ = Null($A$) | Null space of $A$ | Last $(n-r)$ columns of $V$ |
+| Col($A$) = Range($A$) | Column space of $A$ | First $r$ columns of $U$ |
+| $\ker(A^{T})$ = Null($A^{T}$) | Null space of $A^{T}$ | Last $(m-r)$ columns of $U$ |
 <br>
 
 1) $\ker(A)$ : Null space of $A$

@@ -46,6 +46,6 @@ M^{-1}\begin{bmatrix} 4 & 0 \\ 0 & 4 \end{bmatrix}M = 4I(M^{-1}M) =  \begin{bmat
 \begin{align}
 \text{Jordan form : }J = \begin{bmatrix} \lambda & 1 \\ 0 & \lambda \end{bmatrix} = \begin{bmatrix} 4 & 1 \\ 0 & 4 \end{bmatrix} \quad\text{(not diagonalizable)}\\
 \text{More members of family : } \begin{bmatrix} 5 & 1 \\ -1 & 3 \end{bmatrix}, \begin{bmatrix} 4 & 0 \\ 17 & 4 \end{bmatrix},\cdots \quad\text{(trace = 8 and det = 16)} \\\\
-\text{example : } M^{-1}\begin{bmatrix} 5 & 1 \\ -1 & 3 \end{bmatrix}M = \begin{bmatrix} 4 & 1 \\ 0 & 4 \end{bmatrix} = J
+\text{example :}\quad M^{-1}\begin{bmatrix} 5 & 1 \\ -1 & 3 \end{bmatrix}M = \begin{bmatrix} 4 & 1 \\ 0 & 4 \end{bmatrix} = J
 \end{align}
 ```

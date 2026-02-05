@@ -1,27 +1,4 @@
-
-# 📚 Lecture 3: Multiplication and Inverse matrices
-<br>**○ Inverse matrices**<br>
-- For square matrix $A$,
-<br>if $A^{-1}$ exists, then $A$ is <b>invertible</b> and <b>non-singular</b>.
-
-```math
-A^{-1}A = I = AA^{-1}
-```
-
-- In below case, $\vec{x} \not= \vec{0}$.<br>
-But at the same time, $\vec{x} = \vec{0}$.<br>
-If some combinations of colums of $A$ give $\vec{0}$, then $A$ is <b>singular</b> and <b>not invertible</b>.
-
-```math
-\begin{align}
-\text{When}\quad A = \begin{bmatrix} 1 & 3 \\ 2 & 6 \end{bmatrix} \quad
-\text{and}\quad \vec{x} = \begin{bmatrix} 3 \\ -1 \end{bmatrix} \quad\text{, then}\quad A\vec{x} = \vec{0} \\\\
-\text{if}\quad A^{-1} \quad\text{exists,}\quad\text{then}\quad A^{-1}A\vec{x} = A^{-1}0 \quad→\quad \vec{x} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}
-\end{align}
-```
-<br>
-
-**○ Gauss-Jordan Elimination**<br>
+### ¶ Gauss-Jordan Elimination ¶ (from Lecture_03)
 
 - Set $\quad AA^{-1} = I$
 ```math

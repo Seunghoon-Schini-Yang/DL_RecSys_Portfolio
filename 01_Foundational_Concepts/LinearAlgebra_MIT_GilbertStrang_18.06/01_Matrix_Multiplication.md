@@ -23,6 +23,7 @@ c_{m1} & c_{m2} & \cdots & c_{mp}
 \end{bmatrix}
 \end{align}
 ```
+<br>
 
 - Each element of $\mathbf{C}$
 ```math
@@ -42,12 +43,12 @@ c_{ij} = \vec{a}_{row_i}\cdot\vec{b}_{col_j}
 \vec{c}_{col_k} = b_{1k} \vec{a}_{col_1} + b_{2k} \vec{a}_{col_2} + \cdots + b_{nk}\vec{a}_{col_n}
 = \sum_{i=1}^n b_{ik} \vec{a}_{col_i}
 ```
+<br>
 
 - 4th way (cols of $A$ * rows of $B$)
 ```math
 C = \sum_{k=1}^n \vec{a}_{col_k} \cdot \vec{b}_{row_k}
 ```
-
 ```math
 \begin{align}
 \text{Example :}\quad
@@ -64,7 +65,6 @@ C = \sum_{k=1}^n \vec{a}_{col_k} \cdot \vec{b}_{row_k}
 + \begin{bmatrix} -1 \begin{bmatrix} 2 \\ 5 \end{bmatrix} & 1 \begin{bmatrix} 2 \\ 5 \end{bmatrix} \end{bmatrix}
 \end{align}
 ```
-
 ```math
 \begin{align}
 \quad\text{※ Each row (col) has same direction to other rows (cols) :} \\
@@ -74,6 +74,7 @@ C = \sum_{k=1}^n \vec{a}_{col_k} \cdot \vec{b}_{row_k}
 \quad\biggr)
 \end{align}
 ```
+<br>
 
 - Multiplication by Blocks
 ```math

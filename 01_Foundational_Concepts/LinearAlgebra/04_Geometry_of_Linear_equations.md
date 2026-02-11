@@ -30,9 +30,6 @@ x \begin{bmatrix} 2 \\ -1 \\ 0 \end{bmatrix}
 **○ Inverse matrix**<br>
 - For square matrix $A$,<br>$A^{-1}$ is <b>inverse</b> of $A$ only if $A^{-1}A = AA^{-1} = I$.
 <br>if $A^{-1}$ exists, then $A$ is <b>invertible</b> and <b>non-singular</b>.
-```math
-
-```
 
 - If some linear combinations of colums of $A$ give $\vec{0}$,<br>
 then $A$ is <b>singular</b> and <b>not invertible</b>.<br>

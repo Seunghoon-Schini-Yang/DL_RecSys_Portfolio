@@ -1,4 +1,4 @@
-# 📚 Lecture 7: Solving Ax = 0: pivot variables, special solutions
+# 📚 Lecture 7: Solving $A\vec{x} = \vec{0}$ : pivot variables, special solutions
 
 ```math
 \begin{align*}
@@ -21,8 +21,8 @@ Ux = \begin{bmatrix} 1 & 2 & 2 & 2 \\ 0 & 0 & 2 & 4 \\ 0 & 0 & 0 & 0 \end{bmatri
 \end{align*}
 ```
 
-- (# of pivot variables) $= Rank(A) = \Gamma = 2$<br>
-- (# of free variables) $= (n - \Gamma) = (4 - 2) = 2$<br>
+- (# of pivot variables) = (rank of $A$) = $\rho(A) = 2$<br>
+- (# of free variables) $= (n - \rho(A)) = (4 - 2) = 2$<br>
 
 ```math
 \begin{align*}
@@ -53,25 +53,29 @@ R = \begin{bmatrix} \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} & \begin{pmatri
 \end{align*}
 ```
 
+Suppose $A$ is a $(m\times n)$ matrix with $m < n$. (More unknowns than equations.)<br>
+There will be free variables (at least one).<br>
+$\therefore$ There must be non-zero solutions to $A\vec{x} = \vec{0}$.
+<br>
+
 **○ Null Space**
-
 ```math
 \begin{align*}
-Rx = 0 \\\\
-→ \begin{bmatrix} I & F \end{bmatrix} \begin{bmatrix} x_{pivot} \\ x_{free} \end{bmatrix} = 0 \\\\
-→ \begin{bmatrix} \underset{(n_{p}\times n_{p})}I & F \end{bmatrix} \begin{bmatrix} -F \\ \underset{(n_{f}\times n_{f})}I \end{bmatrix} = \underset{(n_{p}\times n_{f})}0 \quad\text{(Zero matrix.)}
+R\vec{x} = \vec{0} \\\\
+→ \begin{bmatrix} I & F \end{bmatrix} \begin{bmatrix} \vec{x}_{pivot} \\ \vec{x}_{free} \end{bmatrix} = O \\\\
+→ \begin{bmatrix} \underset{(n_{p}\times n_{p})}I & F \end{bmatrix} \begin{bmatrix} -F \\ \underset{(n_{f}\times n_{f})}I \end{bmatrix} = \underset{(n_{p}\times n_{f})}O \quad\text{(Zero matrix.)}
 \end{align*}
 ```
-
 ```math
-\begin{align*}
-N(R) \text{  (Null space of  } R  \text{ ) : The linear combinations of columns of  } \begin{bmatrix} -F \\ I \end{bmatrix} \\
-N = \begin{bmatrix} -F \\ I \end{bmatrix}
-\end{align*}
+\text{Null}(R) = \ker(R)\: (\text{Null space of}\: R) \:\text{: The linear combinations of columns of  } \begin{bmatrix} -F \\ I \end{bmatrix} \\
 ```
+<br><br><br>
+
+
+# 📚 Lecture 8: Solving $A\vec{x} = \vec{b}$ : row reduced form $R$
 
 **○ $x_{n}$ : Special Solutions**
-- Specific vectors in the <b>null space</b> of a matrix $A$ for the equation $Ax = 0$.<br>
+- Specific vectors in the <b>null space</b> of a matrix $A$ for the equation $A\vec{x} = \vec{0}$.<br>
 They are found by setting one free variable to $1$ and all other free variables to $0$,<br>
 then solving for the pivot variables.<br>
 Each free variable generates a unique special solution.
@@ -83,32 +87,27 @@ A particular solution is <b>one solution out of the infinite set of possible sol
 The easiest way to find a particular solution is to <b>pick values for the free variables</b>,<br>
 which then determines the values of the pivot variables.<br>
 
-<br><br><br>
-
-# 📚 Lecture 8: Solving $Ax = b$ : row reduced form $R$
-
-Solvability
-
-- $Ax = b$ is solvable when $b$ is in $C(A)$.
-- If a combination of rows of $A$ gives zero row, then same combination of entities of $b$ must give 0.
+**○ Solvability**<br>
+- $A\vec{x} = \vec{b}$ is solvable when $\vec{b} \in C(A)$.
+- If a combination of rows of $A$ gives zero row, then same combination of entities of $\vec{b}$ must give 0.
 
 ```math
 \begin{align*}
-\text{Augemented matrix :}\quad \begin{bmatrix} A & b \end{bmatrix}
+\text{Augemented matrix :}\quad \begin{bmatrix} A & \vec{b} \end{bmatrix}
 = \begin{bmatrix} 1 & 2 & 2 & 2 & b_{1} \\ 2 & 4 & 6 & 8 & b_{2} \\ 3 & 6 & 8 & 10 & b_{3} \end{bmatrix} → \begin{bmatrix} 1 & 2 & 2 & 2 & b_{1} \\ 0 & 0 & 2 & 4 & b_{2}-2b_{1} \\ 0 & 0 & 0 & 0 & b_{3}-b_{2}-b_{1} \end{bmatrix} \\\\
 b_{3}-b_{2}-b_{1} = 0
 \end{align*}
 ```
-$[1, 5, 6]$ satisfying $b_{3}-b_{2}-b_{1} = 0$ can be $b$.<br>
+$[1, 5, 6]$ satisfying $b_{3}-b_{2}-b_{1} = 0$ can be $\vec{b}$.<br>
 
 ```math
-b = \begin{bmatrix} b_{1} \\ b_{2} \\ b_{3} \end{bmatrix} = \begin{bmatrix} 1 \\ 5 \\ 6 \end{bmatrix}
+\vec{b} = \begin{bmatrix} b_{1} \\ b_{2} \\ b_{3} \end{bmatrix} = \begin{bmatrix} 1 \\ 5 \\ 6 \end{bmatrix}
 ```
 
-To find complete solution to $Ax = b$.
-1. $x_{particular} = x_{p}$
+To find complete solution to $A\vec{x} = \vec{b}$.
+1. $\vec{x}_{particular} = \vec{x}_{p}$
 - Set all free variables to zero.
-- Solve $Ax = b$ for pivot variables.
+- Solve $A\vec{x} = \vec{b}$ for pivot variables.
 
 ```math
 \begin{align*}
@@ -120,7 +119,7 @@ To find complete solution to $Ax = b$.
 \text{pivot variables :} \quad x_{1}, x_{3} \\
 \text{free variables :} \quad x_{2}, x_{4}
 \end{cases} \\\\
-x_{p} = \begin{bmatrix} -2 \\ 0 \\ \frac{3}{2} \\ 0 \end{bmatrix} \quad
+\vec{x}_{p} = \begin{bmatrix} -2 \\ 0 \\ \frac{3}{2} \\ 0 \end{bmatrix} \quad
 \begin{cases}
 x_{2} = x_{4} = 0 \quad\text{(Set free variables zero.)} \\
 2x_{1} + 2x_{3} = 1 \\ 2x_{3} = 3
@@ -128,7 +127,7 @@ x_{2} = x_{4} = 0 \quad\text{(Set free variables zero.)} \\
 \end{align*}
 ```
 
-2. $x_{nullspace} = x_{n}$
+2. $\vec{x}_{nullspace} = \vec{x}_{n}$
 
 ```math
 \begin{align*}
@@ -139,66 +138,67 @@ x_{2} = x_{4} = 0 \quad\text{(Set free variables zero.)} \\
 \text{pivot variables :} \quad x_{1}, x_{3} \\
 \text{free variables :} \quad x_{2}, x_{4}
 \end{cases} \\\\
-x_{n} = c_{1}x_{n1} + c_{2}x_{n2}
+\vec{x}_{n} = c_{1}\vec{x}_{n1} + c_{2}\vec{x}_{n2}
 = c_{1}\begin{bmatrix} -2 \\ 1 \\ 0 \\ 0 \end{bmatrix} + c_{2}\begin{bmatrix} 2 \\ 0 \\ -2 \\ 1 \end{bmatrix} \quad
 \begin{cases}
-(x_{2}, x_{4}) = (1, 0) \quad\text{for}\quad x_{n1} \\
-(x_{2}, x_{4}) = (0, 1) \quad\text{for}\quad x_{n2}
+(x_{2}, x_{4}) = (1, 0) \quad\text{for}\quad \vec{x}_{n1} \\
+(x_{2}, x_{4}) = (0, 1) \quad\text{for}\quad \vec{x}_{n2}
 \end{cases}
 \end{align*}
 ```
 
-- $x_{complete}$
+- $\vec{x}_{complete}$
 
 ```math
 \begin{align*}
-x_{complete} = x_{particular} + x_{nullspace} {}
-&= x_{p} + x_{n} \\\\
+\vec{x}_{complete} = \vec{x}_{particular} + \vec{x}_{nullspace} {}
+&= \vec{x}_{p} + \vec{x}_{n} \\\\
 &= \begin{bmatrix} -2 \\ 0 \\ \frac{3}{2} \\ 0 \end{bmatrix} + c_{1}\begin{bmatrix} -2 \\ 1 \\ 0 \\ 0 \end{bmatrix} + c_{2}\begin{bmatrix} 2 \\ 0 \\ -2 \\ 1 \end{bmatrix}
 \end{align*}
 ```
 <br>
 
-Plot all solutions $x_{complete}$ in $R_{4}$.<br>
+Plot all solutions $\vec{x}_{complete} \in R_{4}$.<br>
 Then "two-dimensional subspace (a plane) that doesn't go through the origin" comes out.
 
 ```math
 \begin{align*}\begin{cases}
-x_{n} \quad\text{: Two-dimensional subspace (a plane)} \\
-x_{p} \quad\text{: Doesn't go through the origin}
+\vec{x}_{n} \quad\text{: Two-dimensional subspace (a plane)} \\
+\vec{x}_{p} \quad\text{: Doesn't go through the origin}
 \end{cases}\end{align*}
 ```
+<br>
 
-**Rank**
-- $\Gamma$ : Rank of $(m \times n)$ matrix $A$.
+**○ Rank**
+- $\rho(A)$ : Rank of $(m \times n)$ matrix $A$.
 
-- Num of pivot variables cannot be bigger than $n$ and $m$<br>
-$(\Gamma <= m)$ and $(\Gamma <= n)$<br>
+- Num of pivot variables cannot be bigger than $n$ and $m$.<br>
+$\rho(A) <= m$ and $\rho(A) <= n$<br>
 
-- Full column rank $(\Gamma = n < m)$<br>
+- Full column rank : $\rho(A) = n < m$.<br>
 In this case, there are no free variables.<br>
-Null space $N(A) = 0$ → $x_{n} = 0$.<br>
-$x_{complete} = x_{particular} + x_{nullspace} = x_{p}$<br>
-Unique solution (only one) if it exists.<br>
+Null space $\ker(A) = O$ and $\vec{x}_{n} = 0$.<br>
+$\therefore\: \vec{x} = \vec{x}_{p} + \vec{x}_{n} = \vec{x}_{p}$<br>
+This system has only one unique solution if it exists.<br>
 (= This system has either $0$ or $1$ solution.)
 ```math
-R = \begin{bmatrix} I \\ 0 \end{bmatrix}
+R = \begin{bmatrix} I \\ O \end{bmatrix}
 ```
 
-- Full row rank $(\Gamma = m < n)$<br>
-In this case, can solve $Ax = b$ for every $b$.<br>
-Left with $(n - \Gamma) = (n - m)$ free variables.<br>
+- Full row rank : $\rho(A) = m < n$<br>
+In this case, we can solve $A\vec{x} = \vec{b}$ for every $\vec{b}$.<br>
+Left with $(n - \rho(A) = n - m)$ free variables.<br>
 This system has $\infty$ solutions.
 ```math
 R = \begin{bmatrix} I & F \end{bmatrix}
 ```
 
-- Full rank $(\Gamma = m = n)$<br>
-In this case, $A$ is invertible.<br>
+- Full rank : $\rho(A) = m = n$<br>
+In this case, $A$ is <b>invertible</b>.<br>
 $rref(A) = I$ (Reduced row echelon form of $A$ is $I$.)<br>
 This system has only $1$ solution.
 
-- $(\Gamma < m)$ and $(\Gamma < n)$<br>
+- $\rho(A) < m$ and $\rho(A) < n$<br>
 This system has no solution or $\infty$ solutions.
 ```math
 R = \begin{bmatrix} I & F \\ 0 & 0 \end{bmatrix}

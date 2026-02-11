@@ -39,8 +39,8 @@ A\vec{x} = \begin{bmatrix} 1 & 1 & 2 \\ 2 & 1 & 3 \\ 3 & 1 & 4 \\ 4 & 1 & 5 \end
 - Null Space is a vector space.
 ```math
 \begin{align}
-Ax = \begin{bmatrix} 1 & 1 & 2 \\ 2 & 1 & 3 \\ 3 & 1 & 4 \\ 4 & 1 & 5 \end{bmatrix}\begin{bmatrix} x_{1} \\ x_{2} \\ x_{3} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \end{bmatrix} \\
-\text{In this system,}\quad x \quad\text{can be}\quad \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix} \quad\text{or}\quad \begin{bmatrix} 1 \\ 1 \\ -1 \end{bmatrix} \quad\text{or else.}
+A\vec{x} = \begin{bmatrix} 1 & 1 & 2 \\ 2 & 1 & 3 \\ 3 & 1 & 4 \\ 4 & 1 & 5 \end{bmatrix}\begin{bmatrix} x_{1} \\ x_{2} \\ x_{3} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \end{bmatrix} \\
+\text{In this system,}\quad \vec{x} \quad\text{can be}\quad \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix} \quad\text{or}\quad \begin{bmatrix} 1 \\ 1 \\ -1 \end{bmatrix} \quad\text{or else.}
 \end{align}
 ```
 

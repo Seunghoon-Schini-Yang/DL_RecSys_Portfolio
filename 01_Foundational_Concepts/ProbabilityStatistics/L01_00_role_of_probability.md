@@ -17,13 +17,12 @@ A bank deciding whether to give someone a loan.
 In <b>Real world</b>, people borrow money and
 - some repay / some default
 
-<b>Data</b>
-The bank collects data from past customers.
+<b>Data</b> : The bank collects data from past customers.
 - Income / Age / Credit score / Employment status / Loan amount
 - Whether they defaulted
 
 <b>Inference / Statictics</b><br>
-Now statisticians build a model.<br>
+- Now statisticians build a model.<br>
 e.g. they fit a logistic regression.
 ```math
 P(\text{default}|x) = \frac{1}{1+e^{-(\beta_{0}+\beta^{T}x)}}

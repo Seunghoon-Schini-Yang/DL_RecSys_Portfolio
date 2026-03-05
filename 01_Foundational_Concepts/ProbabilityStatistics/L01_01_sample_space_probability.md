@@ -33,7 +33,7 @@ If you have a theory that the weather affects the behavior of coins,<br>then you
 💡Example : Two rolls of tetrahedral die
 - Outcomes $(2,3)$ and $(3,2)$ are different.<br>
 <p align="center">
-    <img src="images/L01_01_sample_space_discrete_eg.jpg" alt="sample_space_continuous" width="450">
+    <img src="images/L01_01_sample_space_discrete_eg.jpg" alt="sample_space_discrete" width="450">
 </p>
 💡──────────
 <br><br>
@@ -41,7 +41,7 @@ If you have a theory that the weather affects the behavior of coins,<br>then you
 **○ Continuous sample space $\Omega$**<br>
 💡Example :
 <p align="center">
-    <img src="images/L01_01_sample_space_continuous_eg.jpg" alt="sample_space_continuous" width="170">
+    <img src="images/L01_01_sample_space_cont_eg.jpg" alt="sample_space_continuous" width="170">
 </p>
 💡──────────
 <br><br><br>

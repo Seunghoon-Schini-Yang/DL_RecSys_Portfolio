@@ -82,8 +82,9 @@ P(A_{i} \mid B) {} &= \frac{P(A_{i}) \: P(B \mid A_{i})}{P(B)} \\
 - Prior : Belief before evidence
 - Posterior : Belief after evidence
 - Likelihood : How compatible the evidence is
+<br><br>
 
-💡Example : Coin bias<br>
+## ¶ Bayes' Rule : 💡 Example (Coin bias) ¶
 You believe a coin is "fair" at first.<br>
 Then you observe 10 heads in a row.<br>
 Now your <b>revised belief</b> shifts heavily toward “biased.”<br>
@@ -95,20 +96,20 @@ We are unsure whether a coin is :<br>
 
 These are two competing hypotheses.
 
-🔵 Step 1 : <b>Prior</b> (Initial beliefs)<br>
+### 🔵 Step 1 : <b>Prior</b> (Initial beliefs)<br>
 Before seeing data, suppose we believe :
 - $P(H_{0}) = 0.5$
 - $P(H_{1}) = 0.5$
 
 So we think it's equally likely to be fair or biased.
 
-🎯 Step 2: <b>Evidence</b><br>
+### 🎯 Step 2: <b>Evidence</b><br>
 We flip the coin 10 times and observe :<br>
 - Data $=$ Event $E$ $=$ $10$ heads in a row
 
 Call this event $E$.
 
-🔥 Step 3: <b>Likelihoods</b><br>
+### 🔥 Step 3: <b>Likelihoods</b><br>
 Now compute how likely this evidence is under each hypothesis.
 - Under $H_{0}$ (Fair)
 ```math
@@ -126,7 +127,7 @@ Under the biased coin,<br>
 ```
 This ratio is called the <b>likelihood ratio</b>.
 
-🔵 Step 4: Compute <b>Evidence</b> Probability<br>
+### 🔵 Step 4: Compute <b>Evidence</b> Probability<br>
 Now compute total probability of observing 10 heads:
 ```math
 \begin{align*}
@@ -136,7 +137,7 @@ P(E) {} &= P(E\mid H_{0})P(H_{0}) + P(E\mid H_{1})P(H_{1}) \\
 \end{align*}
 ```
 
-🎯 Step 5: <b>Posterior</b><br>
+### 🎯 Step 5: <b>Posterior</b><br>
 Apply Bayes :
 ```math
 \begin{align*}
@@ -144,4 +145,21 @@ P(H_{1}\mid E) {} &= \frac{P(E\mid H_{1})\:P(H_{1})}{P(E)} \\
 &= \frac{0.02825(0.5)}{0.014615} \approx 0.967
 \end{align*}
 ```
+
+### 🔥 Interpretation
+```math
+\begin{align*}
+P(\text{biased}\mid \text{10 heads}) \approx 96.7\% \\
+P(\text{fair}\mid \text{10 heads}) \approx 3.3\%
+\end{align*}
+```
+
+Initial belief :
+- 50% fair → $P(H_{0}) = 0.5$
+- 50% biased → $(P(H_{1}) = 0.5)$
+
+After seeing 10 heads :
+- 3.3% fair → $(P(H_{0}\mid E) = 0.033)$
+- 96.7% biased → $(P(H_{1}\mid E) = 0.967)$
+
 💡──────────

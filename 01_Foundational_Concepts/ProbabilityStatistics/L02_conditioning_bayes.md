@@ -1,12 +1,10 @@
 ## ¶ Conditional Probability ¶
 
+**○ Definition**<br>
 $P(A \mid B)$ : "Probability of $A$, given that $B$ has occured."
-
 ```math
 P(A \mid B) = \frac{P(A\cap B)}{P(B)} \quad(\text{defined only when } P(B) > 0)
 ```
-
-
 💡Example : Two rolls of 4-sided die
 <p align="center">
     <img src="images/L02_cond_eg.jpg" alt="sample_space_discrete" width="550">
@@ -117,13 +115,13 @@ P(E\mid H_{0}) = (0.5)^{10} = \frac{1}{1024} \approx 0.00098
 ```
 - Under $H_{1}$ (Biased)
 ```math
-P(E\mid H_{0}) = (0.7)^{10} \approx 0.0282475
+P(E\mid H_{1}) = (0.7)^{10} \approx 0.0282475
 ```
 
 Under the biased coin,<br>
 10 heads is about <b>29 times more likely</b> than fair one.
 ```math
-\frac{0.0282475}{0.00098} \approx 28.8
+\frac{P(E\mid H_{1})}{P(E\mid H_{0})} = \frac{0.0282475}{0.00098} \approx 28.8
 ```
 This ratio is called the <b>likelihood ratio</b>.
 
@@ -132,7 +130,7 @@ Now compute total probability of observing 10 heads:
 ```math
 \begin{align*}
 P(E) {} &= P(E\mid H_{0})P(H_{0}) + P(E\mid H_{1})P(H_{1}) \\
-&= 0.00098(0.5) + 0.02825(0.5) \\
+&= (0.00098 * 0.5) + (0.02825 * 0.5) \\
 &= 0.00049 + 0.014125 = 0.014615
 \end{align*}
 ```
@@ -142,15 +140,15 @@ Apply Bayes :
 ```math
 \begin{align*}
 P(H_{1}\mid E) {} &= \frac{P(E\mid H_{1})\:P(H_{1})}{P(E)} \\
-&= \frac{0.02825(0.5)}{0.014615} \approx 0.967
+&= \frac{0.02825 * 0.5}{0.014615} \approx 0.967
 \end{align*}
 ```
 
 ### 🔥 Interpretation
 ```math
 \begin{align*}
-P(\text{biased}\mid \text{10 heads}) \approx 96.7\% \\
-P(\text{fair}\mid \text{10 heads}) \approx 3.3\%
+P(\text{fair}\mid \text{10 heads}) \approx 3.3\% \\
+P(\text{biased}\mid \text{10 heads}) \approx 96.7\%
 \end{align*}
 ```
 

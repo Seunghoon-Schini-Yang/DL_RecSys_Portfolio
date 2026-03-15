@@ -1,5 +1,7 @@
 ## ¶ Independence ¶
 
+### ◎ Independence
+
 **○ Definition**<br>
 
 <b>Intuitive definition</b> :<br>
@@ -154,4 +156,45 @@ Events $A_{1}, A_{2}, \cdots, A_{n}$ are called <b>independent</b> if
 P(A_{i}\cap A_{j}\cap\cdots\cap A_{m}) = P(A_{i})P(A_{j})\cdots P(A_{m})
 ```
 for any distinct indices $1 \le i, j, \cdots, m \le n$.
+<br>
 
+### ◎ Independence vs Pariwise Independence
+💡Example : Two independent fair coin tosses
+<p align="center">
+    <img src="images/L03_pairwise_independent.jpg" alt="sample_space_discrete" width="180">
+</p>
+
+- $H_{1}$ : First toss is $H$. (Head)
+- $H_{2}$ : Second toss is $H$. (Head)
+- $C$ : The two tosses had the same result. $(= \set{HH, TT})$
+
+```math
+P(H_{1}) = P(H_{2}) = P(C) = \frac{1}{2}
+```
+
+$H_{1}, H_{2}, C$ are <b>pairwise independent</b>.
+```math
+\begin{align*}
+P(H_{1}\cap H_{2}) = \frac{1}{4} = P(H_{1})P(H_{2})  \\
+P(H_{1}\cap C) = \frac{1}{4} = P(H_{1})P(C) \\
+P(H_{2}\cap C) = \frac{1}{4} = P(H_{2})P(C)
+\end{align*}
+```
+$H_{1}, H_{2}, C$ are <b>not independent</b>.
+```math
+P(H_{1}\cap H_{2}\cap C) = P(HH) = \frac{1}{4} \not= \frac{1}{8} = P(H_{1})P(H_{2})P(C)
+```
+To sum up, $H_{1}, H_{2}, C$ are <b>pairwise independent</b>, but <b>not independent</b>.
+
+- Event $H_{1}$ does not carry any useful information<br>
+about the occurence or non-occurence of the event $C$.
+```math
+P(C\mid H_{1}) = P(H_{2}\mid H_{1}) = P(H_{2}) = \frac{1}{2} = P(C)
+```
+- If both H_{1} and H_{2} had occured,<br>
+then the results of the two coin tosses were identical.<br>
+So you know that $C$ also occured.
+```math
+P(C\mid H_{1}\cap H_{2}) = 1 \not= \frac{1}{2} = P(C)
+```
+💡──────────
